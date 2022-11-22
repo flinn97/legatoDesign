@@ -1,0 +1,224 @@
+.centerize {
+    display: flex;
+    justify-content: center;
+    /* margin: 0 auto; */
+}
+.centerizeaa {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+
+
+}
+.centerizeList {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top:20%;
+}
+.spacer-bottom {
+    margin-bottom: 70px;
+}
+.circles {
+    
+    align-items:center;
+    margin: 0 auto;
+    padding-top:150px;
+    padding-bottom:150px;
+    border: 1px solid green;
+    border-radius: 50%;
+    width: 630px;
+    height: 630px;
+    background-color:white;
+    
+}
+
+.back-screen {
+    
+    height: 150px;
+    width:100%;
+    
+}
+.imges {
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+.front {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+.front1 {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.overlap {
+    display:flex;
+    justify-content:center;
+    width: 100%;
+    height: 150px;
+    z-index: 4;
+}
+
+.overlaps {
+    position: absolute;
+    margin-top: 8%;
+    z-index:5;
+    width:30%;
+}
+.overlapsaab {
+    position: absolute;
+    
+    z-index: 5;
+    width: 150px;
+}
+.overlaps1 {
+    position: absolute;
+    margin-top: 25%;
+    z-index: 5;
+    width: 30%;
+}
+
+.columbized {
+    display: flex;
+    
+    margin: 0 auto;
+    flex-direction:column;
+}
+.columbized1 {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+}
+.columbized2 {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.columbized2a {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    width: 100%;
+    height: 1100px;
+    
+}
+.columbized3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.columbized4 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.makeitwork {
+    margin-top: 30%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.makeitwork0 {
+    margin-top: 18%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.makeitwork0ab {
+    margin-top: 8%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.makeitwork0abc {
+    margin-top: 5%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.makeitwork0a {
+    margin-top: 30%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.makeitwork1 {
+    margin-top: 50%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.makeitwork1a {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.makeitwork2{
+    display:flex;
+    justify-content:flex-end;
+    width:95%;
+}
+.makeitwork3 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width:90%;
+}
+.makeitwork4 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 90%;
+}
+.makeitworkagain {
+    justify-content: center;
+}
+.fill {
+    height:100%;
+}
+.fill1 {
+    height: 100%;
+    width:100%;
+}
+.fill2 {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1200px){
+    .columbized2a {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        width: 100%;
+        height: 3000px
+        
+    }
+    
+}

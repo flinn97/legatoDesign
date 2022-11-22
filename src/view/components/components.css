@@ -1,0 +1,3111 @@
+
+.forfiles1 {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+.z {
+    z-index: 2;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+}
+.z1 {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height:91%;
+}
+.z2 {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.checkboxstuff {
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+}
+.checkboxstuff3forarchive {
+    display: flex;
+    flex-direction: row;
+}
+
+.forthegoalsa {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    
+    width: 100%;
+}
+.checkboxstuff1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.checkboxstuff1a {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.checkboxstuff1b {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.checkboxstuff2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+.checkboxstuff4 {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+
+    width: 90%;
+}
+.checkboxstuff5 {
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%
+}
+.checkboxstuff5a {
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%
+}
+.checkboxstuff6 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 25%;
+    align-items: center;
+    margin: 0 auto;
+}
+.checkboxstuff7 {
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%
+}
+.checkboxstuff7a {
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%
+}
+.checkboxstuff8 {
+
+    display: inline-block;
+
+}
+.yesbox{
+    float: left;
+}
+.nobox{
+    float: right;
+}
+
+.centerized {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+}
+.centerizedhw {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    
+}
+
+
+.bpm {
+    
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    width: 25%
+}
+
+input[type=range] {
+    height: 45px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 500px;
+}
+
+    input[type=range]:focus {
+        outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        /* animate: 0.2s; */
+        /* box-shadow: 1px 1px 1px #000000; */
+        background: #EFF1F2;
+        border-radius: 7px;
+       
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+       
+        height: 24px;
+        width: 15px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -11px;
+        box-shadow: 1px 1px 1px #D1D1D1;
+    }
+
+    input[type=range]:focus::-webkit-slider-runnable-track {
+        background: #ffffff;
+    }
+
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        /* animate: 0.2s; */
+        /* box-shadow: 1px 1px 1px #000000; */
+        background: #EFF1F2;
+        border-radius: 7px;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        height: 24px;
+        width: 15px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        cursor: pointer;
+        margin-top: -11px;
+        box-shadow: 1px 1px 1px #D1D1D1;
+    }
+
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        /* animate: 0.2s; */
+        /* box-shadow: 1px 1px 1px #000000; */
+        background: #EFF1F2;
+        border-radius: 7px;
+    }
+
+    input[type=range]::-ms-fill-lower {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        /* animate: 0.2s; */
+        /* box-shadow: 1px 1px 1px #000000; */
+        background: #EFF1F2;
+        border-radius: 7px;
+    }
+
+    input[type=range]::-ms-fill-upper {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        /* animate: 0.2s; */
+        /* box-shadow: 1px 1px 1px #000000; */
+        background: #EFF1F2;
+        border-radius: 7px;
+    }
+
+    input[type=range]::-ms-thumb {
+        height: 24px;
+        width: 15px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -11px;
+        box-shadow: 1px 1px 1px #D1D1D1;
+    }
+
+    input[type=range]:focus::-ms-fill-lower {
+        background: #a64949;
+    }
+
+    input[type=range]:focus::-ms-fill-upper {
+        background: #b84f4f;
+    }
+.myButton {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.card-container0 {
+    display: flex;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    margin: 25px;
+    padding-top:10px;
+    padding-bottom:15px;
+    width: 1300px;
+}
+
+
+
+.card-container0a {
+    display: flex;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    margin: 30px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    width: 75%;
+}
+.card-container0b {
+    display: flex;
+    align-self:flex-start;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    margin: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    width: 100%;
+    height:350px;
+}
+
+
+
+.card-container2ab {
+    display: flex;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    margin: 15px;
+    width: 21%;
+    float: right;
+    height: 50%;
+}
+.card-container3 {
+    display: flex;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    margin-top: 40px;
+    width: 40%;
+    height: 8%;
+}
+.card-container4 {
+    display: flex;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-left:15px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+
+.card-container5 {
+    display: flex;
+    padding: 15px;
+    margin-bottom:15px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 58%;
+    width: 67%;
+    margin-top:50px;
+    
+}
+.card-container5a {
+    display: flex;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 100%;
+    width: 54%;
+}
+.card-container5ab {
+    display: flex;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 100%;
+    width: 376px;
+}
+.card-container5ab1 {
+    display: flex;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 100%;
+    width: 368px;
+}
+
+.card-container5abc {
+    display: flex;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 100%;
+    width: 435px;
+}
+.card-container5b {
+    display: flex;
+    align-self: flex-start;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 45%;
+    width: 55%;
+}
+.card-container6 {
+    display: flex;
+    margin-top: 15px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 500px;
+    width: 50%;
+}
+
+.card-container6abc1 {
+    position: relative;
+    display: flex;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 50%;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 10%;
+    justify-content: center;
+    align-self: center;
+}
+
+.card-container6a {
+    display: flex;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border-radius: 10px;
+    height: 100%;
+    width: 55%;
+}
+.card-containerdd {
+    display: flex;
+    padding: 5px;
+    background-color: white;
+    box-shadow:5px 5px gray;
+    border-radius: 10px;
+    position: absolute;
+    
+}
+.homework-container {
+    background-color: white;
+    display: flex;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+}
+.big-student-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.edit {
+    width: 25px;
+    height: 25px;
+    align-self: flex-end;
+}
+.edita {
+    width: 30px;
+    height: 30px;
+}
+
+.edit0 {
+
+    align-self: flex-end;
+}
+edit0a {
+    flex-direction:row;
+    width: 200px;
+}
+.edit2 {
+    width: 25px;
+    height: 25px;
+    float: right;
+}
+.edit3 {
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-bottom:18px;
+    margin-left:5px;
+
+}
+.edit3a1 {
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-bottom:3px;
+    margin-left:5px;
+
+}
+.edit3a {
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-bottom: 10px;
+}
+.edit3b {
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-top: 14px;
+}
+.edit3b1 {
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-top:10px;
+    
+}
+
+.homework {
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+
+
+
+.to-front{
+    
+    z-index:2000;
+}
+
+.to-front2 {
+    z-index: 1001;
+}
+
+
+
+
+
+.diapicbox4 {
+    position: relative;
+    display: flex;
+    width: 75%;
+    height: 75%;
+    margin: 0 auto;
+    height: auto;
+    justify-content: space-between;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+    flex-direction: column;
+}
+.diapicbox4a {
+    position: relative;
+    display: flex;
+    width: 20%;
+    height: 710px;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+    flex-direction: column;
+}
+
+.close-icon-2 {
+    content: 'x';
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top:5px;
+    background: #ededed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 20px;
+}
+.close-icon-2a {
+    cursor: pointer;
+    position: absolute;
+    left: 5px;
+    top:5px;
+    width: 25px;
+    height: 25px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.profile-img-card2 {
+    width: 175px;
+    height: 175px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.profile-img-card3 {
+    width: 75%;
+    height: 350px;
+    margin: 0 auto 20px;
+    display: block;
+    
+    
+}
+
+.proStud5 {
+    display: flex;
+    flex-direction: row;
+    width: 1252px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    height:450px;
+}
+
+
+.proStud5a {
+    display: flex;
+    flex-direction: row;
+    width: 820px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    height: 250px;
+}
+.proStud5ab {
+    display: flex;
+    flex-direction: row;
+    width: 43%;
+    justify-content: center;
+    margin: 0 auto;
+    
+    margin-bottom: 15px;
+    justify-content: space-between;
+    height: 10%;
+}
+.proStud6 {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    height: 60%;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.proStud1 {
+    display: flex;
+
+   
+    justify-content: space-evenly;
+}
+
+.proStudpic {
+    float: left;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    width:25%;
+}
+.proStudpic1 {
+    float: left;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.proStudpicture {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-left:3px;
+    margin-top:3px;
+
+}
+.proStudpicturemessage {
+    width: 25px;
+    height: 25px;
+   
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-left:5px;
+    margin-right: 3px;
+    margin-top: 9px;
+
+}
+.proStud2 {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 25%;
+    justify-content: space-between;
+
+}
+.proStud3 {
+    margin-top: 10px;
+    width: 25%;
+}
+.proStud4 {
+    margin-bottom: 10px;
+    margin-right: 20px;
+    width: 25%;
+}
+.hubz{
+    opacity:0;
+    
+}
+.hubz:hover {
+    opacity: 100;
+    cursor:pointer;
+}
+.prorow {
+    height: 40px;
+}
+    .prorow:hover {
+        background-color: #f2f2f2;
+    }
+    .prorow1 {
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 45px
+    }
+        .prorow1:hover {
+            background-color: #f2f2f2;
+        }
+.rowss {
+    text-decoration: none;
+}
+
+    .rowss:hover {
+        text-decoration: underline;
+    }
+.rowss1 {
+    text-decoration: none;
+}
+
+    .rowss1:hover {
+        text-decoration: underline;
+        color: #696eb5;
+    }
+
+.rowss2a {
+    color: #696eb5;
+    text-decoration: none;
+}
+.rowss2a:hover {
+    color: #696eb5;
+    text-decoration: underline;
+}
+
+.rowss3 {
+    color: #696eb5;
+}
+
+    .rowss3:hover {
+        text-decoration: underline;
+        color: #696eb5;
+    }
+
+.rowss3a {
+    color: black;
+    text-decoration: underline;
+}
+
+.rowss3a:hover {
+    text-decoration: underline;
+    color: #696eb5;
+}
+
+
+.example {
+    
+    height: 90%;
+    overflow-y: scroll; /* Add the ability to scroll */
+}
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .example::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+    }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    overflow: -moz-scrollbars-none;
+}
+.example::-webkit-scrollbar {
+    width: 3px;
+      
+    
+}
+
+.homeworkScroll1::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+    border-radius: 5px;
+}
+
+.homeworkScroll1::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    /* -webkit-box-shadow: inset 0 0 6px grey; */
+}
+.example1 {
+    height: 95%;
+    overflow-y: scroll; /* Add the ability to scroll */
+}
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .example1::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+    }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example1 {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    overflow: -moz-scrollbars-none;
+}
+.homeworkScroll {
+    height: 100%;
+    overflow-y: scroll; /* Add the ability to scroll */
+}
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .homeworkScroll::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+    }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.homeworkScroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    overflow: -moz-scrollbars-none;
+}
+
+
+
+
+
+.homeworkScroll1 {
+    overflow-y: scroll;
+    height: 98%;
+
+}
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .homeworkScroll1::-webkit-scrollbar {
+        width: 3px;
+          
+        
+    }
+
+    .homeworkScroll1::-webkit-scrollbar-track {
+        /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+        border-radius: 5px;
+    }
+
+    .homeworkScroll1::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        /* -webkit-box-shadow: inset 0 0 6px grey; */
+    }
+.homeworkScroll2 {
+    overflow-y: scroll;
+    height: 95%;
+    width: 90%;
+}
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .homeworkScroll2::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .homeworkScroll2::-webkit-scrollbar-track {
+        /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+        border-radius: 5px;
+    }
+
+    .homeworkScroll2::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        /* -webkit-box-shadow: inset 0 0 6px grey; */
+    }
+
+
+.greenb {
+    color: white;
+    background-color: #00ff00;
+}
+.redb {
+    color: white;
+    background-color: red;
+}
+.cropped1 {
+   
+    object-fit: cover;
+}
+
+.cropped2 {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    
+}
+.underlining{
+    width:19%;
+    border-bottom: 1px solid black
+}
+
+.dropDown {
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: white;
+    z-index: 2000;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+    box-shadow: 5px 3px 3px gray;
+}
+
+
+.dropDowndivs {
+    text-decoration:none;
+    
+}
+    .dropDowndivs:hover {
+        color: #F0F2EF;
+        background: #696eb5;
+        cursor: pointer;
+    }
+.backgroundColors {
+    background: #696eb5;
+    color: #F0F2EF;
+}
+
+option:hover {
+    background-color: #696eb5;
+}
+.backgroundColorshover {
+    background: #F0F2EF;
+    text-decoration: none;
+}
+    .backgroundColorshover:hover {
+        background: #696eb5;
+        color: #F0F2EF;
+    }
+
+    .doit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .space-bottom {
+        margin-bottom: 80px;
+    }
+    .diapicbox2 {
+        position: relative;
+        display: flex;
+        width: 25%;
+        margin: 0 auto;
+        height: auto;
+        justify-content: space-between;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+        flex-direction: column;
+    }
+    .diapicboxa {
+        position: relative;
+        display: flex;
+        width: 25%;
+        margin: 0 auto;
+        height: 350px;
+        justify-content: space-between;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        flex-direction: column;
+    }
+    .diapicboxastudentgoal {
+        position: relative;
+        display: flex;
+        width: 25%;
+        margin: 0 auto;
+        height: 350px;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        flex-direction: column;
+    }
+    .card-container6abc1sh {
+        position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 770px;
+            width: 30%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+    }
+    .card-container6abc1shedit {
+        position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 560px;
+            width: 30%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+    }
+    .card-container5ab121 {
+        display: flex;
+        padding: 5px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 250px;
+        width: 25%;
+        position: relative;
+    }
+    .diapicbox3 {
+        position: relative;
+        display: flex;
+        width: 50%;
+        height:50%;
+        margin: 0 auto;
+        height: auto;
+        justify-content: space-between;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+        flex-direction: column;
+    }
+    .diapicbox {
+        position: relative;
+        display:flex;
+        width: 50%;
+        margin: 0 auto;
+        height: 400px;
+        justify-content:space-between;
+        margin-top: 100px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+        flex-direction: column;
+    }
+    .forfiles {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+    .student-container {
+        width: 75%;
+        display: flex;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        background-color: white;
+        padding: 15px;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 275px;
+    
+    }
+    .student-profile-pic {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-right: 20px;
+        margin-right: 30px;
+        border-right: .5px solid #e0e0eb;
+        width: 25%;
+    }
+    .student-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .proStud {
+        display: flex;
+        flex-direction: row;
+        width: 82%;
+        justify-content: space-between;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .card-container1 {
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        margin: 15px;
+        height:80%;
+        width: 60%;
+        float: right;
+    }
+    .card-container2 {
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        margin: 15px;
+        width: 21%;
+        float: right;
+        height: 80%;
+    }
+    .card-container4ab5 {
+        display: flex;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 30%;
+        width: 67%;
+        margin-top: 50px;
+    }
+    .card-container4ab5tooSmall {
+        display: flex;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 30%;
+        width: 67%;
+        margin-top: 50px;
+    }
+    .forthegoals {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 88%;
+    }
+    .checkboxstuff3tocolumn {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .card-container6abc {
+        display: flex;
+        
+        margin-top: 15px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 600px;
+        width: 30%;
+    }
+    .boxdel {
+        position: relative;
+        width: 25%;
+        margin: 0 auto;
+        height: auto;
+        max-height: 70vh;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .splashscreen{
+        position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 770px;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+        
+    }
+    
+    .card-container4 {
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        margin-left:15px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+    }
+    .diapicbox4b {
+        position: relative;
+        display: flex;
+        width: 43%;
+        height: 80%;
+        margin: 0 auto;
+        justify-content: space-between;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        flex-direction: column;
+    }
+    .checkboxstuff2foradd {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .box_add {
+        position: relative;
+        width: 25%;
+        margin: 0 auto;
+        height: auto;
+        height: 475px;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .boxforhw {
+        position: relative;
+        width: 25%;
+        margin: 0 auto;
+        height: auto;
+        max-height: 70vh;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .boxforhw1 {
+        position: relative;
+        width: 25%;
+        margin: 0 auto;
+        height: auto;
+        max-height: 70vh;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .boxforexisting {
+        position: relative;
+        width: 25%;
+        margin: 0 auto;
+        height: auto;
+        max-height: 70vh;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .diapicbox2a {
+        position: relative;
+        display: flex;
+        width: 25%;
+        margin: 0 auto;
+        height: 650px;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+        flex-direction: column;
+    }
+    .to-fronta1{
+    
+        z-index:6000;
+        
+    }
+    
+    @media only screen and (min-width: 950px) and (max-width: 1400px){
+
+        .forthegoals {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 2000px;
+            width: 100%;
+            padding-left: 30px
+        }
+        .checkboxstuff3tocolumn {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+        }
+        .card-container4ab5 {
+            display: flex;
+            
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 500px;
+            width: 85%;
+            margin-top: 50px;
+        }
+        .card-container6abc {
+            display: flex;
+            
+            margin-top: 15px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 570px;
+            width: 50%;
+        }
+        
+        .diapicboxa {
+            position: relative;
+            display: flex;
+            width: 35%;
+            margin: 0 auto;
+            height: 350px;
+            justify-content: space-between;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .diapicboxastudentgoal {
+            position: relative;
+            display: flex;
+            width: 35%;
+            margin: 0 auto;
+            height: 350px;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .card-container0 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin: 25px;
+            padding-top:10px;
+            padding-bottom:15px;
+            width: 1150px;
+        }
+        .proStud5 {
+            display: flex;
+            flex-direction: row;
+            width: 1100px;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            justify-content: space-between;
+            height:43%;
+        }
+        .card-container5ab {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 100%;
+            width: 360px;
+        }
+        .card-container5abc {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 100%;
+            width: 360px;
+        }
+        .card-container6abc1sh {
+            position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 770px;
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+        }
+        .card-container6abc1shedit {
+            position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 530px;
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+        }
+        .diapicbox4b {
+            position: relative;
+            display: flex;
+            width: 70%;
+            height: 87%;
+            margin: 0 auto;
+            justify-content: space-between;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 10px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .box_add {
+            position: relative;
+            width: 40%;
+            margin: 0 auto;
+            height: auto;
+            height: 475px;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        
+    }
+    
+    @media only screen and (min-width: 500px) and (max-width: 1200px){
+        .splashscreen{
+            position: relative;
+                display: flex;
+                padding: 10px;
+                background-color: white;
+                box-shadow: 1px 1px gray;
+                border-radius: 10px;
+                height: 80vh;
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 75px;
+                flex-direction: column;
+                align-self: center;
+            
+        }
+        .box_add {
+            position: relative;
+            width: 70%;
+            margin: 0 auto;
+            height: auto;
+            height: 475px;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        
+        
+
+        .student-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 200px;
+        }
+        .diapicbox {
+            position: relative;
+            display:flex;
+            width: 70%;
+            margin: 0 auto;
+            height: 400px;
+            justify-content:space-between;
+            margin-top: 100px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+            flex-direction: column;
+        }
+        .diapicboxa {
+            position: relative;
+            display: flex;
+            width: 53%;
+            margin: 0 auto;
+            height: 350px;
+            justify-content: space-between;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .diapicboxastudentgoal {
+            position: relative;
+            display: flex;
+            width: 53%;
+            margin: 0 auto;
+            height: 350px;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .diapicbox2 {
+            position: relative;
+            z-index: 4000;
+            display: flex;
+            width: 45%;
+            margin: 0 auto;
+            height: auto;
+            justify-content: space-between;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+            flex-direction: column;
+        }
+        .card-container0 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin: 25px;
+            padding-top:10px;
+            padding-bottom:15px;
+            width: 85%;
+            
+        }
+        .proStud5 {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 5px;
+            justify-content: space-between;
+            height: 1500px
+            
+        }
+        .card-container5ab {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            width: 95%;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            height: 450px;
+            
+        }
+
+        .card-container5abc {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 450px;
+            width: 95%;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .proStud5a {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 150px;
+            margin-bottom: 20px;
+            
+        }
+        .card-container5ab1 {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 95%;
+            height: 225px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .card-container5ab121 {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 250px;
+            width: 50%;
+            position: relative;
+        }
+        .card-container6abc1sh {
+            position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 770px;
+            width: 69%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+        }
+        .card-container6abc1shedit {
+            position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 530px;
+            width: 69%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+        }
+        .student-container {
+            width: 100%;
+            display: flex;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 275px;
+        
+        }
+        .student-profile-pic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 5px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-right: 20px;
+            margin-right: 10px;
+            border-right: .5px solid #e0e0eb;
+            width: 25%;
+        }
+        .card-container2 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            align-self: center;
+            margin: 0px;
+            width: 100%;
+            float: right;
+            height: 500px;
+        }
+        .card-container1 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            align-self: center;
+            margin: 15px;
+            height:500px;
+            width: 100%;
+            float: right;
+        }
+        .proStud {
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+            
+            margin: 0 auto;
+        }
+        .card-container4 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            margin-left:0px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            height: 100%;
+            width: 515px;
+            margin: 0 auto;
+            align-self: center;
+            flex-direction: column;
+        }
+        .diapicbox4b {
+            position: relative;
+            display: flex;
+            width: 90%;
+            height: 87%;
+            margin: 0 auto;
+            justify-content: space-between;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 10px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .boxforhw {
+            position: relative;
+            width: 55%;
+            margin: 0 auto;
+            height: auto;
+            max-height: 70vh;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        .boxforhw1 {
+            position: relative;
+            width: 55%;
+            margin: 0 auto;
+            height: auto;
+            max-height: 70vh;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        .boxforexisting {
+            position: relative;
+            width: 55%;
+            margin: 0 auto;
+            height: auto;
+            max-height: 70vh;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        
+    }
+    .overlaps1a {
+        margin-top: 10px;
+        z-index: 5;
+        width: 100%;
+        margin-left:20px;
+    }
+    .noted{
+        width: 100%;
+    }
+    @media only screen and (min-width: 290px) and (max-width: 500px){
+        .noted{
+            width: 100%; display:flex; justify-content: center; flex-direction: row;
+        }
+        .overlaps1a {
+            margin-top: 10px;
+            z-index: 5;
+            width: 100%;
+            align-self: center;
+            flex-direction: row;
+            display: flex;
+            margin-left:0px;
+            justify-content: center;
+            margin:0 auto;
+        }
+        .boxforexisting {
+            position: relative;
+            width: 95%;
+            margin: 0 auto;
+            height: auto;
+            max-height: 70vh;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        .boxforhw {
+            position: relative;
+            width: 95%;
+            margin: 0 auto;
+            
+            max-height: 90%;
+            margin-top: 67px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        .boxforhw1 {
+            position: relative;
+            width: 96%;
+            margin: 0 auto;
+            
+            height: 95%;
+            margin-top: 67px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        .checkboxstuff2foradd {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .card-container4 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            margin-left:0px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            height: 100%;
+            width: 80%;
+            margin: 0 auto;
+            align-self: center;
+            flex-direction: column;
+        }
+        .checkboxstuff3tocolumn {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .forthegoals {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 2000px;
+            width: 100%;
+        }
+        .card-container2 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            align-self: center;
+            margin: 0px;
+            width: 100%;
+            float: right;
+            height: 500px;
+        }
+        .proStud {
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            
+            margin: 0 auto;
+        }
+        .forfiles {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            
+        }
+        .diapicbox {
+            position: relative;
+            display:flex;
+            width: 95%;
+            margin: 0 auto;
+            height: 400px;
+            justify-content:space-between;
+            margin-top: 100px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 10px;
+            border: 1px solid #999;
+            overflow: auto;
+            flex-direction: column;
+        }
+        .card-container5ab121 {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 250px;
+            width: 95%;
+            position: relative;
+        }
+        .card-container6abc1sh {
+            position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 85%;
+            width: 96%;
+            margin: 0 auto;
+            margin-top: 75px;
+            flex-direction: column;
+            align-self: center;
+        }
+        .card-container6abc1shedit {
+            position: relative;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 85%;
+            width: 96%;
+            margin: 0 auto;
+            margin-top: 67px;
+            flex-direction: column;
+            align-self: center;
+        }
+        .diapicboxa {
+            position: relative;
+            display: flex;
+            width: 95%;
+            margin: 0 auto;
+            height: 350px;
+            justify-content: space-between;
+            margin-top: 110px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .diapicboxastudentgoal {
+            position: relative;
+            display: flex;
+            width: 95%;
+            margin: 0 auto;
+            height: 350px;
+            margin-top: 110px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        .diapicbox2 {
+            position: relative;
+            display: flex;
+            width: 95%;
+            margin: 0 auto;
+            height: 90%;
+            justify-content: space-between;
+            margin-top: 55px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+            flex-direction: column;
+        }
+        .card-container0b {
+            display: flex;
+            align-self:flex-start;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin: 20px;
+            
+            padding-bottom: 10px;
+            width: 50%;
+            height:350px;
+        }
+        .space-bottom {
+            margin-bottom: 40px;
+        }
+        .card-container0 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-top:5px;
+            padding-bottom:10px;
+            width: 95%;
+            
+        }
+        .proStud5 {
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 5px;
+            justify-content: space-between;
+            height: 1425px
+            
+        }
+        .card-container5ab {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            width: 97%;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 450px;
+            
+        }
+
+        .card-container5abc {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 450px;
+            width: 97%;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .proStud5a {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 0px;
+            margin-bottom: 5px;
+            height: 1050px
+            
+        }
+        .card-container5ab1 {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 95%;
+            height: 450px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .student-profile-pic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            margin-top: 5px;
+            margin-bottom: 5px;
+            
+            
+            
+            width: 50%;
+            display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0px;
+        margin-top: 20px;
+        padding-right: 0px;
+        margin-right: 0px;
+        border-right: none;
+        }
+        .student-container {
+            width: 95%;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 7px;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 360px;
+        
+        }
+        /* .change-label2a {
+            display: inline-block;
+            margin: 2px;
+            margin-top: 3px;
+            margin-bottom: 0px;
+            width: var(--checkbox-size4);
+            height: var(--checkbox-size4);
+            border: calc(var(--checkbox-size4) * .05) solid var(--checkbox-color);
+            border-radius: 25%;
+            -o-transition: 400ms 100ms ease-out;
+            transition: 400ms 100ms ease-out;
+        }
+        .tick {
+            z-index:0;
+            position: relative;
+            right: calc(var(--checkbox-size4) * -0.5);
+            top: calc(var(--checkbox-size4) * -0.75);
+            width: calc(var(--checkbox-size4) * 0.35);
+            height: calc(var(--checkbox-size4) * 0.75);
+            border-right: calc(var(--checkbox-size4) * 0.2) solid var(--tick-color);
+            border-bottom: calc(var(--checkbox-size4) * 0.2) solid var(--tick-color);
+            -webkit-transform: rotate(45deg) scale(0);
+            -ms-transform: rotate(45deg) scale(0);
+            transform: rotate(45deg) scale(0);
+            opacity: 0;
+            -webkit-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+            -o-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+            transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+        }
+        .tick:before {
+            content: '';
+            position: absolute;
+            left: calc(var(--checkbox-size4) * -0.125);
+            bottom: calc(var(--checkbox-size4) * -0.2);
+            border: calc(var(--checkbox-size4) * 0.1) solid var(--tick-color);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    
+        .tick:after {
+            content: '';
+            position: absolute;
+            right: calc(var(--checkbox-size4) * -0.2);
+            top: calc(var(--checkbox-size4) * -0.125);
+            border: calc(var(--checkbox-size4) * 0.1) solid var(--tick-color);
+            border-radius: 50%;
+            z-index: 0;
+        } */
+        .card-container1 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            align-self: center;
+            margin: 15px;
+            height:500px;
+            width: 100%;
+            float: right;
+        }
+        .card-container4ab5 {
+            display: flex;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 1000px;
+            width: 95%;
+            margin-top: 50px;
+        }
+        .card-container4ab5tooSmall {
+            display: flex;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 470px;
+            width: 95%;
+            margin-top: 50px;
+            
+        }
+        .card-container6abc {
+            display: flex;
+            
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 545px;
+            width: 95%;
+        }
+        .boxdel {
+            position: relative;
+            width: 95%;
+            margin: 0 auto;
+            height: auto;
+            max-height: 70vh;
+            margin-top: 170px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        .box_add {
+            position: relative;
+            width: 95%;
+            margin: 0 auto;
+            height: auto;
+            height: 475px;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #999;
+            overflow: auto;
+        }
+        .diapicbox4b {
+            position: relative;
+            display: flex;
+            width: 98%;
+            height: 80%;
+            margin: 0 auto;
+            justify-content: space-between;
+            margin-top: calc(100vh - 85vh - 20px);
+            background: #fff;
+            border-radius: 15px;
+            padding: 10px;
+            border: 1px solid #999;
+            flex-direction: column;
+        }
+        
+    }
+    
+    @media only screen and (max-width: 370px){
+        
+        .splashscreen{
+            position: relative;
+                display: flex;
+                padding: 10px;
+                background-color: white;
+                box-shadow: 1px 1px gray;
+                border-radius: 10px;
+                height: 450px;
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 75px;
+                flex-direction: column;
+                align-self: center;
+            
+        }
+        .to-fronta1{
+    
+            z-index:6000;
+        }
+
+        .diapicbox2a {
+            position: relative;
+            display: flex;
+            width: 95%;
+            margin: 0 auto;
+            height: 700px;
+            margin-top: 60px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: auto;
+            flex-direction: column;
+            z-index: 5000;
+            position: absolute;
+        }
+        
+        
+        .tick {
+            z-index:0;
+            position: relative;
+            right: calc(var(--checkbox-size4) * -0.5);
+            top: calc(var(--checkbox-size4) * -0.75);
+            width: calc(var(--checkbox-size4) * 0.35);
+            height: calc(var(--checkbox-size4) * 0.75);
+            border-right: calc(var(--checkbox-size4) * 0.2) solid var(--tick-color);
+            border-bottom: calc(var(--checkbox-size4) * 0.2) solid var(--tick-color);
+            -webkit-transform: rotate(45deg) scale(0);
+            -ms-transform: rotate(45deg) scale(0);
+            transform: rotate(45deg) scale(0);
+            opacity: 0;
+            -webkit-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+            -o-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+            transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+        }
+        .tick:before {
+            content: '';
+            position: absolute;
+            left: calc(var(--checkbox-size4) * -0.125);
+            bottom: calc(var(--checkbox-size4) * -0.2);
+            border: calc(var(--checkbox-size4) * 0.1) solid var(--tick-color);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    
+        .tick:after {
+            content: '';
+            position: absolute;
+            right: calc(var(--checkbox-size4) * -0.2);
+            top: calc(var(--checkbox-size4) * -0.125);
+            border: calc(var(--checkbox-size4) * 0.1) solid var(--tick-color);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .card-container0 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-top:5px;
+            padding-bottom:10px;
+            width: 95%;
+            height: 450px;
+            
+        }
+        .proStud5 {
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 0px;
+            
+            height: 1500px
+            
+        }
+        .card-container5ab {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 450px;
+            
+        }
+
+        .card-container5abc {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            height: 450px;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 45px;
+            margin-bottom: 40px;
+        }
+        .proStud5a {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 0px;
+            margin-bottom: 5px;
+            height: 1050px
+            
+        }
+        
+        .card-container5ab1 {
+            display: flex;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 95%;
+            height: 450px;
+            margin-top: 0px;
+            margin-bottom: 50px;
+        }
+        .change-label2a {
+            display: inline-block;
+            margin: 2px;
+            margin-top: 3px;
+            margin-bottom: 0px;
+            width: var(--checkbox-size4);
+            height: var(--checkbox-size4);
+            border: calc(var(--checkbox-size4) * .05) solid var(--checkbox-color);
+            border-radius: 25%;
+            -o-transition: 400ms 100ms ease-out;
+            transition: 400ms 100ms ease-out;
+        }
+        .card-container4 {
+            display: flex;
+            background-color: white;
+            box-shadow: 1px 1px gray;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            margin-left:0px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            height: 100%;
+            width: 96%;
+            margin: 0 auto;
+            align-self: center;
+            flex-direction: column;
+        }
+        
+    }
+  
+@media only screen and (min-width: 800px) and (max-width: 1200px){
+
+    .forthegoals {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 2000px;
+        width: 100%;
+    }
+    .checkboxstuff3tocolumn {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .card-container4ab5 {
+        display: flex;
+        
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 500px;
+        width: 97%;
+        margin-top: 50px;
+    }
+    .card-container6abc {
+        display: flex;
+        
+        margin-top: 15px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 570px;
+        width: 56%;
+    }
+}
+@media only screen and (min-width: 1400px) and (max-width: 1700px){
+
+    .forthegoals {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 2000px;
+        width: 100%;
+    }
+    .checkboxstuff3tocolumn {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .card-container4ab5 {
+        display: flex;
+        
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 500px;
+        width: 81%;
+        margin-top: 50px;
+    }
+    
+    .card-container6abc {
+        display: flex;
+        
+        margin-top: 15px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 570px;
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 800px){
+    .noted{
+        width: 100%; display:flex; justify-content: center; flex-direction: row;
+    }
+    .overlaps1a {
+        margin-top: 10px;
+        z-index: 5;
+        width: 100%;
+        align-self: center;
+        flex-direction: row;
+        display: flex;
+        margin-left:0px;
+        justify-content: center;
+        margin:0 auto;
+    }
+    .boxforexisting {
+        position: relative;
+        width: 95%;
+        margin: 0 auto;
+        height: auto;
+        max-height: 70vh;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .boxforhw {
+        position: relative;
+        width: 95%;
+        margin: 0 auto;
+        
+        max-height: 90%;
+        margin-top: 67px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .boxforhw1 {
+        position: relative;
+        width: 96%;
+        margin: 0 auto;
+        
+        height: 95%;
+        margin-top: 67px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .checkboxstuff2foradd {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .card-container4 {
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        margin-left:0px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        height: 100%;
+        width: 80%;
+        margin: 0 auto;
+        align-self: center;
+        flex-direction: column;
+    }
+    .checkboxstuff3tocolumn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .forthegoals {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 2000px;
+        width: 100%;
+    }
+    .card-container2 {
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        align-self: center;
+        margin: 0px;
+        width: 100%;
+        float: right;
+        height: 500px;
+    }
+    .proStud {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        
+        margin: 0 auto;
+    }
+    .forfiles {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        
+    }
+    .diapicbox {
+        position: relative;
+        display:flex;
+        width: 95%;
+        margin: 0 auto;
+        height: 400px;
+        justify-content:space-between;
+        margin-top: 100px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 10px;
+        border: 1px solid #999;
+        overflow: auto;
+        flex-direction: column;
+    }
+    .card-container5ab121 {
+        display: flex;
+        padding: 5px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 250px;
+        width: 95%;
+        position: relative;
+    }
+    .card-container6abc1sh {
+        position: relative;
+        display: flex;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 85%;
+        width: 96%;
+        margin: 0 auto;
+        margin-top: 75px;
+        flex-direction: column;
+        align-self: center;
+    }
+    .card-container6abc1shedit {
+        position: relative;
+        display: flex;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 85%;
+        width: 96%;
+        margin: 0 auto;
+        margin-top: 67px;
+        flex-direction: column;
+        align-self: center;
+    }
+    .diapicboxa {
+        position: relative;
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        height: 350px;
+        justify-content: space-between;
+        margin-top: 110px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        flex-direction: column;
+    }
+    .diapicboxastudentgoal {
+        position: relative;
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        height: 350px;
+        margin-top: 110px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        flex-direction: column;
+    }
+    .diapicbox2 {
+        position: relative;
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        height: 90%;
+        justify-content: space-between;
+        margin-top: 55px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+        flex-direction: column;
+    }
+    .card-container0b {
+        display: flex;
+        align-self:flex-start;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        margin: 20px;
+        
+        padding-bottom: 10px;
+        width: 50%;
+        height:350px;
+    }
+    .space-bottom {
+        margin-bottom: 40px;
+    }
+    .card-container0 {
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-top:5px;
+        padding-bottom:10px;
+        width: 95%;
+        
+    }
+    .proStud5 {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 5px;
+        justify-content: space-between;
+        height: 1425px
+        
+    }
+    .card-container5ab {
+        display: flex;
+        padding: 5px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        width: 97%;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 450px;
+        
+    }
+
+    .card-container5abc {
+        display: flex;
+        padding: 5px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 450px;
+        width: 97%;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .proStud5a {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        height: 1050px
+        
+    }
+    .card-container5ab1 {
+        display: flex;
+        padding: 5px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        margin: 0 auto;
+        width: 95%;
+        height: 450px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .student-profile-pic {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        margin-top: 5px;
+        margin-bottom: 5px;
+        
+        
+        
+        width: 50%;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+    margin-top: 20px;
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: none;
+    }
+    .student-container {
+        width: 95%;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        background-color: white;
+        padding: 7px;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 380px;
+    
+    }
+    .change-label2a {
+        display: inline-block;
+        margin: 2px;
+        margin-top: 3px;
+        margin-bottom: 0px;
+        width: var(--checkbox-size4);
+        height: var(--checkbox-size4);
+        border: calc(var(--checkbox-size4) * .05) solid var(--checkbox-color);
+        border-radius: 25%;
+        -o-transition: 400ms 100ms ease-out;
+        transition: 400ms 100ms ease-out;
+    }
+    .tick {
+        z-index:0;
+        position: relative;
+        right: calc(var(--checkbox-size4) * -0.5);
+        top: calc(var(--checkbox-size4) * -0.75);
+        width: calc(var(--checkbox-size4) * 0.35);
+        height: calc(var(--checkbox-size4) * 0.75);
+        border-right: calc(var(--checkbox-size4) * 0.2) solid var(--tick-color);
+        border-bottom: calc(var(--checkbox-size4) * 0.2) solid var(--tick-color);
+        -webkit-transform: rotate(45deg) scale(0);
+        -ms-transform: rotate(45deg) scale(0);
+        transform: rotate(45deg) scale(0);
+        opacity: 0;
+        -webkit-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+        -o-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+        transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.5);
+    }
+    .tick:before {
+        content: '';
+        position: absolute;
+        left: calc(var(--checkbox-size4) * -0.125);
+        bottom: calc(var(--checkbox-size4) * -0.2);
+        border: calc(var(--checkbox-size4) * 0.1) solid var(--tick-color);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    .tick:after {
+        content: '';
+        position: absolute;
+        right: calc(var(--checkbox-size4) * -0.2);
+        top: calc(var(--checkbox-size4) * -0.125);
+        border: calc(var(--checkbox-size4) * 0.1) solid var(--tick-color);
+        border-radius: 50%;
+        z-index: 0;
+    }
+    .card-container1 {
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        align-self: center;
+        margin: 15px;
+        height:500px;
+        width: 100%;
+        float: right;
+    }
+    .card-container4ab5 {
+        display: flex;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 1000px;
+        width: 95%;
+        margin-top: 50px;
+    }
+    .card-container4ab5tooSmall {
+        display: flex;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 470px;
+        width: 85%;
+        margin-top: 50px;
+        
+    }
+    .card-container6abc {
+        display: flex;
+        
+        margin-top: 15px;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 545px;
+        width: 95%;
+    }
+    .boxdel {
+        position: relative;
+        width: 95%;
+        margin: 0 auto;
+        height: auto;
+        max-height: 70vh;
+        margin-top: 170px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .box_add {
+        position: relative;
+        width: 95%;
+        margin: 0 auto;
+        height: auto;
+        height: 475px;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #999;
+        overflow: auto;
+    }
+    .diapicbox4b {
+        position: relative;
+        display: flex;
+        width: 98%;
+        height: 80%;
+        margin: 0 auto;
+        justify-content: space-between;
+        margin-top: calc(100vh - 85vh - 20px);
+        background: #fff;
+        border-radius: 15px;
+        padding: 10px;
+        border: 1px solid #999;
+        flex-direction: column;
+    }
+    .forthegoals {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 2000px;
+        width: 100%;
+    }
+    .checkboxstuff3tocolumn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .card-container4ab5 {
+        display: flex;
+        
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 1000px;
+        width: 93%;
+        margin-top: 50px;
+    }
+    /* .card-container4ab5tooSmall {
+        display: flex;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 30%;
+        width: 75%;
+        margin-top: 50px;
+    } */
+    .card-container6abc {
+        display: flex;
+        
+        margin-top: 15px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 535px;
+        width: 75%;
+    } 
+}
+@media only screen and (min-width: 800px) and (max-width: 1200px){
+    .forthegoals {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 2000px;
+        width: 100%;
+    }
+    .card-container4ab5tooSmall {
+        display: flex;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: white;
+        box-shadow: 1px 1px gray;
+        border-radius: 10px;
+        height: 53%;
+        width: 75%;
+        margin-top: 50px;
+    }
+   
+
+}
+
+
