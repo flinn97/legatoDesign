@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import dash from "../assets/Dashboard.svg";
 import cal from "../assets/Calendar.svg";
 import chat from "../assets/ChatSVG.svg";
+import profile from "../assets/profile1.png";
 
 class Menu extends Component {
     constructor(props) {
@@ -97,6 +98,38 @@ class Menu extends Component {
                         flexDirection:"row",
                         width:"53%",
                         }}><img style={{marginLeft: state.ipad?"6.5px": ""}}  src = {dash}/>{!state.ipad &&(<p style={{marginLeft:"20px",}}>Dashboard</p>)}</div></div>)}
+
+                        {state.currentuser.getJson().type!=="student" &&(
+                            <div 
+                            style={{
+                                padding: this.props.app.state.styles.margins.margin5,
+                                cursor:"pointer",
+                                border: "0px solid #000000", 
+                                borderRadius: "9px",
+                                margin: "0 auto",
+                                height: this.props.app.state.styles.margins.margin3,
+                                marginTop: this.props.app.state.styles.margins.margin4,
+                                width: state.ipad? "50px": window.innerWidth<1425? "12.75vw":"10.5vw",
+                                paddingLeft:"10px",
+                                
+                                display:"flex",
+                                flexDirection:"row",
+                                justifyContent:"",
+                                background: this.props.app.state.myswitch==="studentList" ? styles.colors.colorBackground:"",
+                                
+                                color: this.props.app.state.myswitch==="studentList" ? styles.colors.colorOffBlack:styles.colors.colorOffBlack+"DE",
+                                fontWeight: this.props.app.state.myswitch==="studentList" ? styles.fonts.fontweightMed:styles.fonts.fontweightMain,
+                            }} 
+                        onClick={async()=>{
+                            //
+                            window.history.pushState({state: "dash"}, "page 2", "student")
+                            await this.props.app.dispatch({ keepChat:false})
+                            this.props.app.dispatch({...this.props.app.state.switch.student})}}>
+                                <div style={{ display:"flex",
+                                flexDirection:"row",
+                                width:"53%",
+                                }}><img style={{marginLeft: state.ipad?"6.5px": ""}}  src = {profile}/>{!state.ipad &&(<p style={{marginLeft:"20px",}}>Student</p>)}</div></div>
+                        )}
 
                 {state.currentuser.getJson().role==="student"?(<div style={{cursor:"pointer",}} 
                 onClick={async()=>{

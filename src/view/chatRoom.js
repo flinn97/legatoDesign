@@ -477,7 +477,7 @@ class ChatRoom extends Component {
                                                 </>) : (<>
                                                     <div style={{
                                                         fontWeight: "500",
-                                                        fontSize: "14px", width: "45vw", background: this.props.app.state.styles.colors.colorLink, borderRadius: "15px", marginLeft: "20px", color: "black", padding: "10px"
+                                                        fontSize: "14px", width: "45vw", background: this.props.app.state.styles.colors.colorLink, borderRadius: "15px", marginLeft: "20px", color: "white", padding: "10px"
                                                     }}>{post.getJson().content}</div>
                                                     <img style={{ borderRadius: "50%", width: "50px", height: '50px' }} src={post.getJson().picURL ? post.getJson().picURL : wolf} />
                                                 </>)}

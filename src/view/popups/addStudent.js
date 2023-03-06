@@ -529,8 +529,8 @@ class Addstudent extends Component {
                                             ...styles.buttons.buttonLog, fontSize: "1.3333vh",
                                             marginTop: styles.margins.margin5,
 
-                                            background: styles.colors.color2, height: "27px",
-                                            color: styles.colors.colorOffBlack,
+                                            background: styles.colors.color1, height: "27px",
+                                            color: "white",
                                             fontWeight:styles.fonts.fontweightMed,
                                             width:app.state.iphone?"15vw":"9vw",
                                         }} onClick={() => {
@@ -545,7 +545,7 @@ class Addstudent extends Component {
                                             if (Object.keys(obj).length > 0) {
                                                 this.setState({ objArr: ar, sched: obj, days: [], time: "", sched: {} })
                                             }
-                                        }}> Save</div>
+                                        }}> Save Time</div>
                                     </div>
 
                                 </div>
@@ -579,11 +579,13 @@ class Addstudent extends Component {
 
                                     await authService.register(student.getJson()._id + "@legato.com", student.getJson()._id);
                                     await authService.registerStudent({ email: app.state.email }, student.getJson()._id);
+                                    const delay = ms => new Promise(res => setTimeout(res, ms));
+                                    await delay(1000);
                                     app.dispatch({ studentAdded: true, studentAddedPopup: true });
                                     // await operate.JsonPrepareRun({addchatroom:{name:student.getJson().firstName, people:{[student.getJson()._id]:student.getJson().lastName}}});
-
+                                    
                                     this.props.handleClose();
-                                }}>{this.state.loading ? (<><img src={loading} style={{ width: "20px", height: "20px" }} />Adding...</>) : (<>Add Student</>)}</button>
+                                }}>{this.state.loading ? (<><img src={loading} style={{ width: "20px", height: "20px" }} />Adding...</>) : (<>Create Student</>)}</button>
                         </div>
                     </div>
                 </div>

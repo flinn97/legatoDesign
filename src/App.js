@@ -16,7 +16,7 @@ class App extends Component {
         super(props);
         this.handleChange=this.handleChange.bind(this);
         this.dispatch=this.dispatch.bind(this);
-        // this.operate=this.operate.bind(this);
+    // this.operate=this.operate.bind(this);
         this.factory= new Factory();
         this.state = {
             styles: styleService.getstyles(),
@@ -41,16 +41,23 @@ class App extends Component {
     }
     async componentDidMount(){
         
-        if(window.innerWidth<1300){
-            this.setState({styles: styleService.resize1(), ipad:true});
+        
+        // window.addEventListener("resize", async ()=>{
+            if(window.innerWidth<1300){
+                this.setState({styles: styleService.resize1(), ipad:true});
+    
+            }
+            // else{
+            //     this.setState({styles: styleService.getstyles(), ipad:true});
 
-        }
-        if(window.innerWidth<600){
-            this.setState({styles: styleService.resize2(), ipade:false, iphone:true});
-            var root = document.getElementById("root");
-            root.style.overflow="auto";
-            root.style.position="auto";
-        }
+            // }
+            if(window.innerWidth<600){
+                this.setState({styles: styleService.resize2(), ipade:false, iphone:true});
+                var root = document.getElementById("root");
+                root.style.overflow="auto";
+                root.style.position="auto";
+            }
+        //   })
         
         let myUser = await authService.getCurrentUser();
         if(myUser){
@@ -169,6 +176,7 @@ class App extends Component {
             let operationsFactory =this.state.componentList.getOperationsFactory();
             let splice = operate!==undefined? await operationsFactory.getSplice(operate) : "";
             
+            //use the listener to listen to operation requests
             let obj = await operationsFactory.operationsFactoryListener({operate:operate, operation:operation, object:object});
             
             let currentComponent=operate!==undefined? obj[splice][0]: undefined;

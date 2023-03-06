@@ -97,7 +97,8 @@ class Homework extends componentBase{
         ...this.checksandtime,
         ...this.startobj,
         type:"homework",
-        meta:""
+        meta:"",
+        media:{}
     }
     /**
      * Send to functions to send a notification to student
@@ -106,8 +107,9 @@ class Homework extends componentBase{
      async notify(rest){
         
         if(rest==="add"){
-            let message = "Your teacher added the assignment" + this.json.title;         
-            await authService.getNotifyInfo(this.json.owner, message)
+            let title = "New Homework Assignment"
+            let message = "Your teacher added the assignment " + this.json.title;         
+            await authService.getNotifyInfo(this.json.owner, message, title)
         }
         
     }
@@ -135,6 +137,7 @@ class UserThings extends componentBase{
         type: "user",
         signUpDate: moment().format('L'),
         paidCustomer: false,
+        trial: true,
 
     }
     getDaysFromNow(){
@@ -185,13 +188,16 @@ class Goals extends componentBase{
      async notify(rest){
         
         if(rest==="add"){
-            let message = "Your teacher added the assignment" +this.json.title;         
-            await authService.getNotifyInfo(this.json.owner, message)
+            let message = "Your teacher added the goal " +this.json.title;
+            let title= "New Goal"
+            await authService.getNotifyInfo(this.json.owner, message, title)      
+           
         }
         if(rest==="update"){
             if(this.json.complete){
-                let message = "You just accomplished the goal: " +this.json.title;         
-                await authService.getNotifyInfo(this.json.owner, message)
+                let message = "You just accomplished the goal: " +this.json.title;  
+                let title= "Nice Job!"       
+                await authService.getNotifyInfo(this.json.owner, message, title)
             }
         }
         
@@ -220,8 +226,23 @@ class Student extends componentBase{
         this.updateComponent=this.updateComponent.bind(this);
         this.sync=this.sync.bind(this);
         this.syncItUp=this.syncItUp.bind(this);
+        this.clearStreak=this.clearStreak.bind(this);
+        this.cleartimeTotal=this.cleartimeTotal.bind(this);
 
     }
+    formObj={
+        switch: ["time", "check", "trackTime", "starpoints"],
+        text: ["parent", "address", "phone", "firstName", "lastName", "about", "email", ],
+        timePick: ["days"],
+        linkObjects:["syncedStudents"],
+        photoUpload:["picURL"],
+        richEditor: []
+    }
+    formsList=["photoUpload", "text", "text", "text", "text", "text", "text", "text", "switch", "switch", "switch", "switch", "timePick", "linkObjects"];
+    names=[...this.formObj.photoUpload, ...this.formObj.text, ...this.formObj.switch, ...this.formObj.timePick, ...this.formObj.linkObjects, ];
+    names=[...this.formObj.text, ];
+    labels=["none", "parent", "address", "phone", "firstName", "lastName", "about", "email", "time", "check", "trackTime", "starpoints",]
+
     json={
         ...this.userInfo,
         type: "student",
@@ -232,6 +253,7 @@ class Student extends componentBase{
         pastFirstTime: false,
         parent: "",
         address:"",
+        group: "",
         days: {},
         syncedStudents:{
 
@@ -268,6 +290,7 @@ class Student extends componentBase{
 
                 }
             }
+            //Clean prepare and run the data with a list of students
             this.operationsFactory.cleanPrepareRun({update:students})
         }
         async syncItUp(students){
@@ -284,15 +307,26 @@ class Student extends componentBase{
         async clearTime(){
             //
             this.json.time= {...this.checksandtime.time};
-            this.json.timeTotal=0;
+            
             this.json.timeBool= {...this.checksandtime.checked};
             this.json.daystreak= 0;
+            //update just the class 
             await this.operationsFactory.cleanPrepareRun({update:this});
         }
         async clearChecks(){
             //
             this.json.checked = {...this.checksandtime.checked};
             this.json.daystreak= 0;
+            await this.operationsFactory.cleanPrepareRun({update:this});
+        }
+        async clearStreak(){
+            
+            this.json.totalDaysPracticed=0
+            await this.operationsFactory.cleanPrepareRun({update:this});
+        }
+        async cleartimeTotal(){
+            
+            this.json.timeTotal="0"
             await this.operationsFactory.cleanPrepareRun({update:this});
         }
         async checked(day){
@@ -327,6 +361,19 @@ class Student extends componentBase{
        
         
 }
+class Group extends componentBase{
+    json={
+        _id: "",
+        title: "",
+        owner: "",
+        type:"group",
+        dateOfPost: moment().format('lll'),
+        collection: "",
+
+    }
+   
+}
+
 class ChatRoom extends componentBase{
     json={
         _id: "",
@@ -380,7 +427,8 @@ class Post extends componentBase{
       async notify(rest){
         
         if(rest==="add"){
-            let message = this.json.content;         
+            let message = this.json.content; 
+            let title = "New Message"        
             await authService.getNotifyInfo(this.json.owner, message)
         }
         
@@ -402,8 +450,9 @@ class Badge extends componentBase{
     async notify(rest){
         
         if(rest==="add"){
-            let message = "Your teacher justawarded you a new badge.";         
-            await authService.getNotifyInfo(this.json.owner, message)
+            let title = "New Badge"
+            let message = "Your teacher just awarded you a new badge.";         
+            await authService.getNotifyInfo(this.json.owner, message, title)
         }
         
     }
@@ -411,4 +460,4 @@ class Badge extends componentBase{
 }
 
 
-export {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge}
+export {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge, Group}

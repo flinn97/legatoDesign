@@ -17,7 +17,8 @@ class GetSwitch extends Misc{
         metro:{myswitch:"metro" },
         calendar:{myswitch:"calendar" },
         chat:{myswitch:"chat" },
-        teacher:{myswitch:"teacherpage"}
+        teacher:{myswitch:"teacherpage"},
+        student:{myswitch:"studentList"}
     }
 }
 

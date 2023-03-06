@@ -72,7 +72,7 @@ class PicUpload extends Component {
                    
                    <div class="mb-3">
                     <img src = {this.state.pic? this.state.pic: wolf} style={{width:"100px", height:"100px", borderRadius:"50%"}} />
-                   <label for="formFile" class="form-label">Default file input example</label>
+                   
                    <input class="form-control" type="file" id="formFile" onChange={this.changeHandler}/>
                  </div>
                     <div>

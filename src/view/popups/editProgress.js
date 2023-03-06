@@ -5,6 +5,8 @@ import Down from './downarrow.png';
 import Switch from "react-switch";
 import calendarService from '../../services/calendarService';
 import SelectTime from "../selectTime.js";
+import SelectComponent from '../../npm/componentForms/selectComponent';
+import InputFormButtonComponent from '../../npm/componentForms/inputComponentWithButton';
 
 export default class EditProgress extends Component {
     constructor(props) {
@@ -53,6 +55,7 @@ export default class EditProgress extends Component {
             times: [],
             sched: {},
             objArr: [],
+            groupList:[]
             // showtime: this.props.app.state.currentstudent.scheduling
         }
     }
@@ -97,6 +100,18 @@ export default class EditProgress extends Component {
                 starpoints: compJson.starpoints,
                 check: compJson.check
             })
+        }
+        let groupList = state.componentList.getList("group");
+        if(groupList.length>0){
+            let list = [];
+            for(const key in groupList){
+                list.push(groupList[key].getJson().title);
+
+            }
+            this.setState({
+                groupList:list
+            })
+
         }
 
 
@@ -324,7 +339,58 @@ export default class EditProgress extends Component {
                                     <label htmlFor="address"><b>Address:</b></label>
                                     <input type="text" className="form-control" id="address" placeholder={compJson?.phone} onChange={opps?.handleChange} name="updateaddress" />
                                 </div>
+                                        <div className="form-group"
+                                    style={{ width: "89%", marginTop:"10px", marginBottom:"10px" }}>
+                                        <div style={{display:'flex', flexDirection:"row"}}><b>Group:</b> <div style={{marginLeft:"5px"}}>{compJson.group}</div></div>
+                                        {(this.state.groupList.length>0 && !this.state.addGroup )?(
+                                            <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+                                                
+                                <SelectComponent topOption={true} selectOptions={this.state.groupList} input="normal" handleChange={(e)=>{
+                                    
+                                let { name, value } = e.target;
+                                if(value!=="" && value){
+                                let list = state.componentList.getList('group');
+                                let group = undefined;
+                                for(const key in list){
+                                    if(list[key].getJson().title===value){
+                                        group= list[key];
+                                        break;
+                                    }
+                                }
+                                component.setJson({...component.getJson(), group: group.getJson().title});
+                                this.setState({})
+                            }
+                            }}/>
+                            <div style={{color:"#6C86F4", cursor:"pointer", alignSelf:"center" }} onClick={()=>{this.setState({addGroup:true})}}>Add New</div>
+                            </div>
+                            ):(
+                                <div >
+                                    {this.state.groupList.length===0 && <div>No Current Groups Add Here</div>}
+                                    {this.state.addGroup&& <div style={{ cursor:"pointer", }} onClick={()=>{this.setState({addGroup:false})}}>back</div>}
+                                <InputFormButtonComponent buttonText="Add" handleChange={async (value)=>{
+                                    
+                                    await opps.cleanJsonPrepareRun({addgroup: {owner: state.currentuser.getJson()._id, title:value}});
+                                    await component.setJson({...component.getJson(), group: value});
 
+                                    await opps.prepare({update:component});
+                                    let groupList = state.componentList.getList("group");
+                                    if(groupList.length>0){
+                                        let list = [];
+                                        for(const key in groupList){
+                                            list.push(groupList[key].getJson().title);
+                            
+                                        }
+                                        this.setState({
+                                            groupList:list
+                                        })
+                            
+                                    }
+
+                                    this.setState({addGroup:false});
+                                }} />
+                                </div>
+                            )}
+                            </div>
 
                                 {state.currentuser.getJson().role === "teacher" && (<>
                                     <label>Should this student have daily checkboxes?</label>
@@ -358,8 +424,30 @@ export default class EditProgress extends Component {
                                     </select>
                         )}*/}
                                     </div>
-                                    {/* <div>Clear Checks</div>
-                                    <div>Clear Time</div> */}
+                                    <div onClick={()=>{
+                                        this.setState({checksCleared:true})
+                                        component.clearChecks();
+                                        
+                                    }} style={{width:"150px", height:"40px", borderRadius:"7px", background:"#6C86F4", display:"flex", alignItems:"center", cursor:"pointer", justifyContent:"center", color:"white", marginTop:"10px"}}>
+                                        {this.state.checksCleared?(<>Checks Cleared</>):(<>Clear Checks</>)}</div>
+                                    <div onClick={()=>{
+                                        this.setState({timeCleared:true})
+                                        component.clearTime()
+                                        
+                                        }} style={{width:"150px", height:"40px", borderRadius:"7px", background:"#6C86F4", display:"flex", alignItems:"center", cursor:"pointer",justifyContent:"center", color:"white", marginTop:"10px"}}>
+                                            {this.state.timeCleared?(<>Time Cleared</>):(<>Clear Time</>)}</div>
+                                    <div onClick={()=>{
+                                        this.setState({streakCleared:true})
+                                        component.clearStreak()
+                                        
+                                    }} style={{width:"150px", height:"40px", borderRadius:"7px", background:"#6C86F4", display:"flex", alignItems:"center", cursor:"pointer",justifyContent:"center", color:"white", marginTop:"10px"}}>
+                                        {this.state.streakCleared?(<>Streak Cleared</>):(<>Clear Streak</>)}</div>
+                                    <div onClick={()=>{
+                                        this.setState({totalTimeCleared:true})
+                                        component.cleartimeTotal()
+                                        
+                                        }} style={{width:"150px", height:"40px", borderRadius:"7px", background:"#6C86F4", display:"flex", alignItems:"center", cursor:"pointer",justifyContent:"center", color:"white", marginTop:"10px"}}>
+                                            {this.state.totalTimeCleared?(<>Total Time Cleared</>):(<>Clear Total Time</>)}</div>
                                     {/* <div className="form-group">
                                 <label>Track Star Points?</label>
                                 <Switch onChange={this.handleSpChange} checked={this.state.starpoints} onColor={"#57BA8E"} name="updatecheck" uncheckedIcon={false} checkedIcon={false} />
@@ -406,7 +494,7 @@ export default class EditProgress extends Component {
                             </div>
                         </div>
 
-                        <div style={{ marginTop: state.iphone ? "35vh" : "6vh", marginLeft: "2vw" }}>
+                        <div style={{ marginTop: state.iphone ? "35vh" : "6vh", marginLeft: "2vw", marginTop:window.innerWidth<600&&"600px" }}>
                             <div className="homeworkScroll1" style={{ height: "45vh" }}>
                                 <h3>Lesson Times</h3>
                                 {/* UMM?? */}

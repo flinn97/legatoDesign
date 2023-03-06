@@ -92,8 +92,8 @@ class Chat extends Component {
                                 }}>
                     <div >
                         <img src={componentList.getComponent("student", post?.getJson().owner, "_id")?.getJson()?.picURL} style={{
-                            width:"2.5vw", 
-                            height:"2.5vw", 
+                            width:state.iphone?"5vw":"2.5vw", 
+                            height:state.iphone?"5vw":"2.5vw", 
                             borderRadius:"50%",
                             verticalAlign: "center", 
                                 alignContent: "center",

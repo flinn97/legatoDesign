@@ -75,8 +75,8 @@ class Homework extends Component {
 
                                 {...styles.buttons.buttonAdd,
                                     marginRight: ".83vw",
-                                    width:state.iphone? "3.8vw":"6.5vw",
-                                    fontSize:".79vw"
+                                    width:state.iphone? "13vw":"6.5vw",
+                                    fontSize:state.iphone?"12px":".79vw"
                             }
                             }
                         >+ Add Assignment</div>)}
@@ -88,7 +88,7 @@ class Homework extends Component {
                             <div className="scroller">
                             {comp.getList("homework", id).map((homework, index) =>
                                 <div style={{
-                                    cursor: app.state.currentuser.getJson().role==="teacher"?"pointer": "auto",
+                                    cursor: "pointer",
                                     display: "flex",
                                     marginBottom:"10px",
                                     marginLeft:"20px",
@@ -103,19 +103,26 @@ class Homework extends Component {
                                         fontWeight: styles.fonts.fontweightMain,
                                         display: "flex",
                                         justifyContent: "space-between",
-                                        cursor: app.state.currentuser.getJson().role==="teacher"?"pointer": "auto",
+                                        cursor: "pointer",
                                         flexDirection: "row",
                                     }}key={index}>
-                                     <div style={{marginLeft: styles.margins.margin4, flexDirection:'row', display:"flex", cursor: state.currentuser.getJson().currentuser==="teacher"? "pointer":"auto",
+                                     <div style={{marginLeft: styles.margins.margin4, flexDirection:'row', display:"flex", cursor: "pointer",
                                         }}
-                                            onClick={()=>{
+                                            onClick={ async ()=>{
                                                 if(state.currentuser.getJson().role==="teacher"){
                                                     dispatch({ popupSwitch: "updateHomework", operate: "update", operation: "cleanPrepare", object: homework }, false)
                                                 }
-                                                }}>
+                                                else{
+                                                    await dispatch({  operate: "update", operation: "cleanPrepare", object: homework })
+                                                    const delay = ms => new Promise(res => setTimeout(res, ms));
+                                                    await delay(5);
+                                                    dispatch({ popupSwitch: "showHomework", })
+                                                }
+                                                }
+                                                }>
                                                 <div style={{
                                                     fontSize: styles.fonts.fontsize1,
-                                                    fontStyle: "oblique 20deg", cursor: app.state.currentuser.getJson().role==="teacher"?"pointer": "auto",
+                                                    fontStyle: "oblique 20deg", cursor: "pointer",
                                                 }}
                                                 >{homework.getJson().title.length>45?(<>{homework.getJson().title.slice(0,45)}...</>):(<>{homework.getJson().title}</>)}</div>
                                         
@@ -126,7 +133,7 @@ class Homework extends Component {
                                                 fontWeight: styles.fonts.fontweightMed,
                                                 letterSpacing: styles.fonts.appSpacing2,
                                                 color:styles.colors.colorLink, 
-                                                display:"flex", cursor: app.state.currentuser.getJson().role==="teacher"?"pointer": "auto",
+                                                display:"flex", cursor: "pointer",
                                                 flexDirection:"column", 
                                                 justifyContent:"flex-end"
                                                 }}>
@@ -243,9 +250,15 @@ class Homework extends Component {
                                     }}key={index}>
                                      <div style={{marginLeft: styles.margins.margin4, flexDirection:'row', display:"flex", cursor: state.currentuser.getJson().currentuser==="teacher"? "pointer":"auto",
                                         }}
-                                            onClick={()=>{
+                                            onClick={async ()=>{
                                                 if(state.currentuser.getJson().role==="teacher"){
                                                     dispatch({ popupSwitch: "updateHomework", operate: "update", operation: "cleanPrepare", object: homework }, false)
+                                                }
+                                                else{
+                                                    await dispatch({  operate: "update", operation: "cleanPrepare", object: homework })
+                                                    const delay = ms => new Promise(res => setTimeout(res, ms));
+                                                    await delay(5);
+                                                    dispatch({ popupSwitch: "showHomework", })
                                                 }
                                                 }}>
                                                 <div style={{

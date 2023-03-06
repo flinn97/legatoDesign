@@ -83,6 +83,7 @@ export default class Login extends Component {
         await this.setState({
             loading:true
         })
+        debugger
         e.preventDefault();
         let email = this.state.email
         let password = this.state.password

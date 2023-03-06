@@ -28,7 +28,7 @@ class Admin extends Component {
     async onclick(){
 
         let user = await authService.register(this.state.firstname, this.state.lastname, this.state.email, this.state.password)
-        console.log(user)
+        // console.log(user)
         let ar = this.state.users
         ar.push(user)
         this.setState({

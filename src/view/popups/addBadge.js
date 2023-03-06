@@ -146,7 +146,7 @@ class AddBadge extends Component {
                     style={{ 
                         ...styles.buttons.buttonLog,
                         width:state.iphone?"40vw": "140px",
-                        height:state.iphone?"5vh": "6%",
+                        height:state.iphone?"3vh": "6%",
                         marginTop:state.iphone?"0vh": styles.margins.margin4,
                         position:"absolute",
                         bottom:"0",
@@ -165,7 +165,7 @@ class AddBadge extends Component {
                     <div>
                     {state.currentComponent?.getJson().collection!=="" &&(<div  
                     onClick={dispatch.bind(this, {popupSwitch:"", operation:"cleanPrepareRun", object:state.currentComponent, operate:"del"})}
-                    style={{ background: "#F56060", height: "30px", color: "#F0F2EF", width: "200px", display:"flex", flexDirection:"column",position:"absolute",
+                    style={{ background: "#F56060",height:state.iphone?"3vh": "6%", color: "#F0F2EF", width:window.innerWidth<600?"150px": "200px", display:"flex", flexDirection:"column",position:"absolute",
                     bottom:"0",marginBottom:"10px",
                     left:"200px", justifyContent:"center", alignItems:"center",  borderRadius: "16px", }}>Delete</div>)}
                     </div>

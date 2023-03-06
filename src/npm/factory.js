@@ -1,4 +1,4 @@
-import {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge } from "../model/myComponents.js"
+import {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge, Group } from "../model/myComponents.js"
 import BaseClass from "./baseClass";
 
 class Factory {
@@ -6,6 +6,7 @@ class Factory {
 
     factory ={
         post: Post,
+        group: Group,
         chatroom: ChatRoom,
         starpoints: Starpoints,
         baseClass: BaseClass,

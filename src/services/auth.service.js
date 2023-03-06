@@ -42,7 +42,7 @@ class AuthService {
             }
         else {
                 let user = await componentList.getComponent('user');
-                let needsToPay = user.getDaysFromNow();
+                let needsToPay = user?.getDaysFromNow();
                 dispatch({ login: false, currentuser: user, email: email, checkURL: true, needsToPay:needsToPay });
 
             }
@@ -115,7 +115,7 @@ class AuthService {
 
         }
     }
-    async getNotifyInfo(id, message) {
+    async getNotifyInfo(id, message, title) {
         const components = query(collection(db, "users"), where('_id', '==', id));
         let comps = await getDocs(components);
         let rawData = [];
@@ -125,7 +125,7 @@ class AuthService {
 
         }
         
-        let obj = {message:message, tokens: rawData[0].tokens}
+        let obj = {message:message, tokens: rawData[0].tokens, title:title}
             if(obj.tokens){
                 this.notify(obj);
             }

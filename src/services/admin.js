@@ -33,7 +33,7 @@ class Admin extends Component {
                 currentUser: auth,
             })
             AuthService.getAllaccounts(this.state.currentUser.email, "Samantha0320!").then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 this.setState({
                     accounts: response.data
                 })
@@ -50,7 +50,7 @@ class Admin extends Component {
             });
            
         }
-        console.log(this.state);
+        // console.log(this.state);
     }
 
     less() {

@@ -10,9 +10,10 @@ import Teacher from './teacher.js';
 import ChatRoom from './chatRoom.js';
 import StudentDashboard from './studentDashboard.js';
 import logo from '../assets/logo.png';
-import chat from "../assets/chat.png";
+import chat from "../assets/ChatSVG.svg";
 import wolf from "../assets/place1.png";
 import ProfilePic from './profilepic.js';
+import StudentList from './studentList.js';
 
 export default class Dashboard extends Component {
     constructor(props) {
@@ -21,6 +22,16 @@ export default class Dashboard extends Component {
         this.state = {
             
         };
+    }
+
+    componentDidMount(){
+        if(this.props.app.state.currentuser){
+            
+            if(!this.props.app.state.currentuser?.getJson().paidCustomer && !this.props.app.state.currentuser?.getJson().trialCustomer){
+                this.props.app.dispatch({popupSwitch:"trialOver"})
+            }
+        }
+        
     }
 
     render() {
@@ -104,7 +115,9 @@ function Switchcase (props) {
         calendar: app.state.myswitch==="calendar" && (<Calendar  app={app}/>),
         chat: app.state.myswitch==="chat" && (<ChatRoom  app={app}/>),
         teacherpage: app.state.myswitch==="teacherpage" && (<Teacher  app={app}/>),
-        dash: app.state.myswitch==="dash" && (<Dash app={app}/>)
+        dash: app.state.myswitch==="dash" && (<Dash app={app}/>),
+        studentList: app.state.myswitch==="studentList" && (<StudentList app={app}/>)
+
     }
     return mypage[app.state.myswitch]? mypage[app.state.myswitch]: <div></div>;
 

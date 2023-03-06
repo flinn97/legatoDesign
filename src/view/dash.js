@@ -36,7 +36,7 @@ class Dashboard extends Component {
                             
                             }}>
                     {state.currentuser.role==="admin"?(<Admin />):(<div >
-                    <div  style={{
+                    <div style={{
                                 
                                 marginTop: styles.borders.allmarginsH,
                                 marginBottom: styles.borders.allmarginsH,

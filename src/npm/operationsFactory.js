@@ -32,6 +32,7 @@ export default class OppsFactory {
         }
         return componentUpdate;
     }
+
     clearUpdater(){
         this.componentUpdate.componentUpdate.add = [];
         this.componentUpdate.componentUpdate.update = [];
@@ -50,6 +51,12 @@ export default class OppsFactory {
         }
         this.getUpdater().setJson(prep);
     }
+    async prepareSingleRun(obj){
+        let prep = await this.prepareArray(obj);
+        await this.register(prep);  
+        
+    }
+
     async jsonPrepare(obj ){
         let prep = await this.getUpdater().getJson();
         for(const key in obj){

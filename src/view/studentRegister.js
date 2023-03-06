@@ -114,8 +114,10 @@ export default class StudentRegister extends Component {
             })
             return
           }
-        
+         await this.props.app.state.currentuser.setJson({...this.props.app.state.currentuser.getJson(), email:this.state.email});
+         await this.props.app.state.currentuser?.getOperationsFactory()?.cleanPrepareRun({update: this.props.app.state.currentuser});
         await studentService.changeStudentsEmail(this.state.email, this.state.password, this.props.app.state.currentuser, this.props.app.dispatch);
+       
     
     }
 
@@ -155,9 +157,10 @@ export default class StudentRegister extends Component {
                                     />
                                 </div>
                                 <div className="form-group" style={{marginTop:"37px"}}>
-                                    <button className="btn  btn-block" style={{ background: "#696eb5", height: "35px", color: "#F0F2EF", width: "85spx" }} onClick={this.handleLogin} >
+                                    <button className="btn  btn-block" style={{ background: "#6C86F4", height: "35px", color: "#F0F2EF", width: "85spx" }} onClick={this.handleLogin} >
                                         <span>{this.state.loading?(<><img src={loading} style={{width:"20px", height:"20px"}}/>Loading...</>):(<>Continue</>)}</span>
                                     </button>
+                                    <div style={{cursor:"pointer", color:"#6C86F4"}} onClick={this.props.app.dispatch.bind(this, {currentuser:undefined, currentstudent:undefined, firstTime:false})}>Back to Login</div>
                                     {this.state.messageSwitch&&(<div style={{color:"red"}}>{this.state.currentMessage}</div>)}
                                 </div>
                                 {/* <ReCAPTCHA

@@ -51,7 +51,18 @@ class Student extends Component {
        let factory=state.factory;
        
        let comp = state.componentList;
-       let students = comp.getList("student");
+       let students = comp.getList("student").sort((a, b)=>{
+        let aLast = a.getJson().lastName.toUpperCase();
+        let bLast = b.getJson().lastName.toUpperCase();
+        if(aLast<bLast){
+            return -1;
+        }
+        if(aLast>bLast){
+            return 1;
+        }
+        return 0;
+        
+       });
 
 
         return (

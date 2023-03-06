@@ -73,8 +73,8 @@ export default class Times extends Component {
         let key = opps?.getSplice(mykey);
         return (
             <div style={{ zIndex: "1100" }}>
-                <div className="popup-box" style={{ zIndex: "1010", width: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center" }}>
-                    <div className="card-container5ab121 centerized" style={{ zIndex: "1010", flexDirection: "column", width:"30vw", height:"34vh"}} ref={this.wrapperRef}>
+                <div className="popup-box" style={{ zIndex: "1010", width:"100%", display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center" }}>
+                    <div className="card-container5ab121 centerized" style={{ zIndex: "1010", flexDirection: "column", width:window.innerWidth<600? "90vw": "30vw", height:"34vh"}} ref={this.wrapperRef}>
                     
                     <div  style={{ ///TITLE
                     display: "flex", 

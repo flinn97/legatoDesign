@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styleService from "../services/styleService";
- 
+import InputFormButtonComponent from "../npm/componentForms/inputComponentWithButton";
 class TimerComponent extends Component {
     constructor(props) {
         super(props);
@@ -10,9 +10,12 @@ class TimerComponent extends Component {
         this.state = {
             mCount: 0,
             sCount: 0,
-            timer: false,
             m2: "0",
             s2: "0",
+            timer: false,
+
+            showTimer:true,
+
         }
 
     };
@@ -30,7 +33,7 @@ class TimerComponent extends Component {
       <div style={{
                         
                         display:"flex", 
-                        flexDirection:"column",
+                        flexDirection:"row",
                         padding: styles.margins.margin4,
                         fontSize: styles.fonts.fontsizeTitle,
                         fontFamily: styles.fonts.appFont,
@@ -43,7 +46,7 @@ class TimerComponent extends Component {
                         letterSpacing: styles.fonts.appSpacing2,  
                        
                        
-                     }}> Timer
+                     }}> <div style={{cursor:"pointer"}} onClick={()=>{this.setState({showTimer:true, s2:"0", m2:"0", mCount:0, sCount:0})}}>Timer/</div><div style={{cursor:"pointer"}} onClick={()=>{this.setState({showTimer:false, s2:"0", m2:"0", mCount:0, sCount:0})}}>Stop Watch</div>
     </div>
         
         <div style={{
@@ -68,11 +71,42 @@ class TimerComponent extends Component {
             {this.state.s2}{this.state.sCount}
         
         </div>
+        {this.state.showTimer&&
         <div style ={{
             justifyContent: "space-around",
             textAlign: "center",
             alignContent: "center",
-            marginTop: "1vh", 
+            width:"100%",
+            fontSize: this.props.app.state.styles.fonts.fontsize1,
+            fontWeight: this.props.app.state.styles.fonts.fontweightMed,
+            color: this.props.app.state.styles.colors.color6 +"aa",
+            justifyContent: "center",
+            alignContent: "center",
+            letterSpacing: styles.fonts.appSpacing,
+
+        }}>
+        <InputFormButtonComponent wrapperStyle={{width:"100%", justifyContent:"center", display:"flex", alignItems:"center"}} buttonStyle={
+            {marginLeft:"10px", borderRadius:"7px", height:"40px", width:"80px", backgroundColor:"#6C86F4", 
+            cursor:"pointer",color:"white", justifyContent:"center", alignItems:"center", display:"flex"}
+        } inputStyle={{width:"100px"}} buttonText="Submit" handleChange={async (value)=>{
+            
+                                   if(parseInt(value)){
+                                    if(parseInt(value)>99){
+                                        value="99";
+                                    }
+                                    let m = value.length===1? value: value[1];
+
+                                    let m2 = value.length===1? "0": value[0];
+                                    this.setState({m2:m2, mCount:m, s2:"0", sCount:"0"})
+                                   } 
+                                
+                                }} />
+                                </div>}
+        <div style ={{
+            justifyContent: "space-around",
+            textAlign: "center",
+            alignContent: "center",
+            marginTop: this.state.showTimer? "0px":"1vh", 
             fontSize: this.props.app.state.styles.fonts.fontsize1,
             fontWeight: this.props.app.state.styles.fonts.fontweightMed,
             color: this.props.app.state.styles.colors.color6 +"aa",
@@ -94,7 +128,7 @@ class TimerComponent extends Component {
             alignItems: "center",
             flexDirection:"column",
             marginTop: this.props.app.state.styles.margins.margin4,
-            marginTop:"2vh",
+            marginTop:this.state.showTimer? "0px":"2vh",
             width: "100%",    
         }}>
 <div style= {{
@@ -116,6 +150,52 @@ class TimerComponent extends Component {
                         while(this.state.timer){
                            
                             if(this.state.timer){
+                                if(this.state.showTimer){
+                                    
+                                    
+                                    let sCount = this.state.sCount.toString();
+                                    let mCount = this.state.mCount.toString();
+                                    let s2 = this.state.s2.toString();
+                                    let m2 = this.state.m2.toString();
+
+                                    if(s2==="0" && sCount==="0"){
+                                        if(m2==="0" && mCount==="0"){
+                                            this.setState({timer:false, sCount:0, mCount:0, s2:0, mCount:0});
+                                            break;
+                                        
+                                        }
+                                        else{
+                                            if(m2!=="0"&& mCount==="0"){
+                                                m2 = parseInt(m2)-1;
+                                                mCount="9";
+                                                
+                                            }
+                                            else if(mCount!=="0"){
+                                                mCount = parseInt(mCount) - 1;
+                                                
+                                            }
+                                        }
+                                        s2 ="5";
+                                        sCount="9"
+                                    }else{
+                                        if(s2!=="0" && sCount==="0" ){
+                                            s2= parseInt(s2) -1;
+                                            sCount="9";
+                                        }
+                                        else{
+                                            sCount=parseInt(sCount) -1;
+                                        }
+                                    }
+                                    
+                                    
+                                    this.setState({
+                                        mCount:mCount.toString(),
+                                        sCount:sCount.toString(),
+                                        s2: s2.toString(),
+                                        m2: m2.toString()
+                                    })
+                                }
+                                else{
                                 let sCount = this.state.sCount+1;
                                 let mCount = this.state.mCount;
                                 let s2 = "0";
@@ -137,14 +217,16 @@ class TimerComponent extends Component {
                                 } else {
                                     m2="0"
                                 }
-
-
                                 this.setState({
                                     mCount:mCount,
                                     sCount:sCount,
                                     s2: s2,
                                     m2: m2
                                 })
+
+                            }
+                               
+                            
                             }
                             const delay = ms => new Promise(res => setTimeout(res, ms));
                             await delay(1000);
@@ -169,7 +251,7 @@ class TimerComponent extends Component {
                         style={{...styles.buttons.buttonRound,
                             color: styles.colors.color1,}}
                     onClick={()=>{
-                        this.setState({timer:false, sCount:0, mCount:0});
+                        this.setState({timer:false, sCount:0, mCount:0, s2:0, m2:0});
                     }}>Reset
                     </button>
                     </div>   

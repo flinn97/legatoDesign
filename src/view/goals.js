@@ -18,15 +18,18 @@ class Goals extends Component {
 
 
     render() {
+        //get the component list from props
         let app=this.props.app;
         let state= app.state;
         let styles=state.styles;
         let dispatch=app.dispatch;
         let factory=state.factory;
         let comp = this.props.app.state.componentList;
+        //get the id of the object that owns the list you want to get.
         let id =state.currentstudent.getJson()._id;
-        let mainList = comp?.getList("mainGoal", state.currentstudent.getJson()._id);
-        let goalList = comp?.getList("goal", state.currentstudent.getJson()._id)
+        //get list of type by owner
+        let mainList = comp?.getList("mainGoal", state.currentstudent.getJson()._id,);
+        let goalList = comp?.getList("goal", state.currentstudent.getJson()._id, )
         
         return (
             <div 
@@ -91,8 +94,8 @@ class Goals extends Component {
                     style={
                         {...styles.buttons.buttonAdd,
                             marginRight: ".83vw",
-                            width:state.iphone? "3.1vw":"5.5vw",
-                            fontSize:".89vw"
+                            width:state.iphone? "8.5vw":"5.5vw",
+                            fontSize:state.iphone?"12px":".79vw"
                         }
                     }>+ Add Goal</div>)}
                     </>)}</div>
@@ -110,13 +113,13 @@ class Goals extends Component {
                         flexDirection: "column",
                         justifyContent: "space-even",
                         width: window.innerWidth<1400&&!state.iphone? "70%":"85%",
-                        height:state.iphone? "19vh":window.innerHeight<800?"21vh":"24.6vh",
-                        height: "120%",
+                        height:state.iphone? "17vh":window.innerHeight<800?"21vh":"24.6vh",
+                        // height:state.iphone? "10vh": "120%",
                         marginBottom: ".08vh",
                         marginTop: state.iphone? "0.1vh":".3vh",
                         marginLeft:".3vw"
                     }}>
-
+                    {/* or use get list inside of the render to get a list of all the main goals by Id owner */}
                     {comp.getList("mainGoal", id).map((main, index) =>
                         <div key={index} >
                             
@@ -148,8 +151,10 @@ class Goals extends Component {
                                         }} className="huv rowss" ><span style={{textDecoration:main.getJson().complete? "line-through black": "none", color:main.getJson().complete? "#57BA8E": "black"}} 
                                         onClick={async ()=>{
                                             if(state.currentuser.getJson().role==="teacher"){
-                                                
+                                                //use the dispatch to show the listener that you want to update an object 
                                             await dispatch({ operate: "update", operation:"cleanPrepare", object:main, });
+
+                                            
                                             dispatch( {popupSwitch:"mainGoal", currentGoal:main})
                                         }
                                         }}

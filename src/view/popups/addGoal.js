@@ -48,7 +48,7 @@ class addGoal extends Component {
         let key = (currentGoal?.getJson()?.collection !=="" && currentGoal?.getJson()?.collection !==undefined) ? "update": "add"
         return (
             <div className="popup-box" style={{ zIndex: "1010", }}>
-                <div ref={this.wrapperRef}  className="diapicboxa" style={{ zIndex: "1010", height:"55vh", width:"35vw"  }}>
+                <div ref={this.wrapperRef}  className="diapicboxa" style={{ zIndex: "1010", height:"55vh", width:window.innerWidth<600? "90vw":"35vw"  }}>
                 <div style={ ///EXIT BUTTON
                                 styles.buttons.closeicon
                             } onClick={this.props.handleClose}>x</div>
@@ -101,7 +101,7 @@ class addGoal extends Component {
                                             }} >
                                 <span className="checkboxstuff1" 
                                     // what is this?
-                                    style={{ width: "9vw", background:"#C9F5E1", borderRadius:".63vw", textAlign: "center", justifyContent: 'center',
+                                    style={{ width: window.innerWidth<600? "60vw":"9vw", background:"#C9F5E1", borderRadius:".63vw", textAlign: "center", justifyContent: 'center',
                                     alignContent: 'center',
                                     alignItems: 'center',
                                     textAlign: "center",}}>

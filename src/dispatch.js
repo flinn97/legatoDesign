@@ -16,6 +16,8 @@ import EditProgress from './view/popups/editProgress.js';
 import Badges from './view/popups/allBadges.js';
 import ShowBadge from './view/popups/showBadge.js'
 import StudentAdded from './view/popups/studentAdded';
+import ShowHomework from './view/popups/showHomework';
+import EndTrial from './view/popups/endTrial';
 
 
 //nav bar helps to navigate from page to page with authorizations to login or sign up etc. 
@@ -27,10 +29,7 @@ class Dispatch extends Component {
         }
     };
 
-    /**
-     * update front and backend with everything.
-     * @param {*} obj 
-     */
+
 
     render() {
         let app = this.props.app;
@@ -40,6 +39,8 @@ class Dispatch extends Component {
 
         return (
             <div>
+                {state.popupSwitch === "trialOver" && (<EndTrial app={app} handleClose={dispatch.bind(this, { popupSwitch: "", secondaryPopup: "", currentstudent: {} },)} />)}
+                {state.popupSwitch === "showHomework" && (<ShowHomework app={app} handleClose={dispatch.bind(this, { popupSwitch: "", secondaryPopup: "", currentComponent: {} },)} />)}
                 {state.popupSwitch === "deleteStudent" && (<Del app={app} handleClose={dispatch.bind(this, { popupSwitch: "", secondaryPopup: "", currentstudent: {} },)} />)}
                 {state.popupSwitch === "editUser" && (<EditUser app={app} handleClose={dispatch.bind(this, { popupSwitch: "" },)} />)}
                 {state.studentAddedPopup && (<StudentAdded app={app} handleClose={dispatch.bind(this, { studentAddedPopup: false, addedStudent:undefined },)} />)}
