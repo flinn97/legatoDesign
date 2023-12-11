@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import studentService from "../../services/studentService";
 import authService from "../../services/auth.service";
 import starpointService from "../../services/starpointService";
+import reportService from "../../services/reportService";
 //allows me to create a dialog box to pop up for adding students with names and emails.
 export default class Times extends Component {
     constructor(props) {
@@ -38,6 +39,12 @@ export default class Times extends Component {
     async handletime(){
         let time=this.props.app.state.currentComponent.getJson().time[this.state.dayfortimepopup];
         await this.props.app.state.currentComponent.addTime(this.state.dayfortimepopup, this.state.timeadded);
+        
+        if(this.props.app.state.currentComponent.getJson().type==='student'){
+            let report = await reportService.createCurrentReport(this.props.app.state.componentList, this.props.app.state.currentComponent.getJson()._id);
+            await  report.update(this.props.app.state.currentComponent);
+        }
+        
         if(!this.props.app.state.currentComponent.getJson().check){
             
             if(parseInt(this.state.timeadded)===0){

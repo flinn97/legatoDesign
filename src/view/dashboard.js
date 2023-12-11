@@ -27,10 +27,15 @@ export default class Dashboard extends Component {
     componentDidMount(){
         if(this.props.app.state.currentuser){
             
-            if(!this.props.app.state.currentuser?.getJson().paidCustomer && !this.props.app.state.currentuser?.getJson().trialCustomer){
+            if(!this.props.app.state.currentuser?.getJson().paidCustomer && !this.props.app.state.currentuser?.getJson().trial && this.props.app.state.currentuser.getJson().role==="teacher"){
                 this.props.app.dispatch({popupSwitch:"trialOver"})
             }
         }
+            // let comp =this.props.app.state.componentList;
+            // let delList = comp.getList("report");
+            // comp.getOperationsFactory().cleanPrepareRun({del:delList});
+        
+    
         
     }
 

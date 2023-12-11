@@ -16,6 +16,85 @@ class calendarService {
         start = start==="12"?start:(parseInt(start)-12).toString()
         return start+ ":" + end
     }
+
+
+    getDay(){
+        const currentDate = new Date();
+        const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = currentDate.getDate().toString().padStart(2, '0');
+        const year = currentDate.getFullYear();
+        return `${month}/${day}/${year}`;
+    }
+
+    getMostRecentMonday() {
+        const currentDate = new Date();
+        const currentDay = currentDate.getDay(); // Sunday is 0, Monday is 1, and so on
+        const daysSinceMonday = (currentDay + 6) % 7; // Calculate the difference
+        const mostRecentMonday = new Date(currentDate);
+        
+        mostRecentMonday.setDate(currentDate.getDate() - daysSinceMonday);
+        
+        const month = (mostRecentMonday.getMonth() + 1).toString().padStart(2, '0');
+        const day = mostRecentMonday.getDate().toString().padStart(2, '0');
+        const year = mostRecentMonday.getFullYear();
+
+        return `${month}/${day}/${year}`;
+    }
+
+    getUpcomingSunday() {
+        const currentDate = new Date();
+        const currentDay = currentDate.getDay(); // Sunday is 0, Monday is 1, and so on
+        const daysUntilSunday = (7 - currentDay) % 7; // Calculate the difference
+        const upcomingSunday = new Date(currentDate);
+        
+        upcomingSunday.setDate(currentDate.getDate() + daysUntilSunday);
+        
+        const month = (upcomingSunday.getMonth() + 1).toString().padStart(2, '0');
+        const day = upcomingSunday.getDate().toString().padStart(2, '0');
+        const year = upcomingSunday.getFullYear();
+
+        return `${month}/${day}/${year}`;
+    }
+
+
+    formatDate(date) {
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${month}/${day}/${year}`;
+    }
+
+    generatePastWeeks() {
+        const now = new Date();
+        const pastWeeks = [];
+
+        for (let i = 0; i <= 13; i++) { // Generate dates for the past 6 months
+            const currentDate = new Date(now);
+            currentDate.setDate(now.getDate() - i * 7); // Move back i weeks
+
+            const week = {
+                mon: this.formatDate(this.getDayOfTheWeek(currentDate, 1)),
+                tue: this.formatDate(this.getDayOfTheWeek(currentDate, 2)),
+                wed: this.formatDate(this.getDayOfTheWeek(currentDate, 3)),
+                thu: this.formatDate(this.getDayOfTheWeek(currentDate, 4)),
+                fri: this.formatDate(this.getDayOfTheWeek(currentDate, 5)),
+                sat: this.formatDate(this.getDayOfTheWeek(currentDate, 6)),
+                sun: this.formatDate(this.getDayOfTheWeek(currentDate, 0)),
+            };
+
+            pastWeeks.push(week);
+        }
+
+        return pastWeeks;
+    }
+
+    getDayOfTheWeek(date, dayIndex) {
+        const day = date.getDay();
+        const diff = dayIndex - day;
+        date.setDate(date.getDate() + diff);
+        return date;
+    }
+
    /**
     * 
     * @param {*} students 

@@ -4,13 +4,31 @@ import Addhomework from './popups/addhomework';
 import Times from './popups/times';
 import studentService from '../services/studentService';
 import fire from '../assets/fire.png';
+import Checkedd3 from './components/checkbox3';
+import ReportService from '../services/reportService';
+import calendarService from '../services/calendarService';
 class Homework extends Component {
     constructor(props) {
         //create state
         super(props);
         this.state = {
-            homeworks: undefined
+            homeworks: undefined,
+            archive: false
         };
+    }
+
+    async componentDidMount(){
+        let app = this.props.app;
+        let state = app.state;
+        let dispatch = app.dispatch;
+        let componentList = this.props.app.state.componentList;
+        let currentReport = await ReportService.createCurrentReport(componentList, state.currentstudent?.getJson()._id).then(async (currentReport)=>{
+            await dispatch({currentReport:currentReport, review:false});
+            ReportService.getAllReportsFromNow(componentList, state.currentstudent?.getJson()._id)
+        });
+        
+
+
     }
 
 
@@ -33,10 +51,11 @@ class Homework extends Component {
                 }
             }>
                 <div style={
-                    {...styles.biggercard, width:state.ipad? styles.biggercard.width:"50vw", marginLeft:"0px"}
+                    {...styles.biggercard, width:state.ipad? styles.biggercard.width:"50vw", marginLeft:"0px", position:"relative"}
 
                 } >
-
+                    {state.currentuser.getJson().role==="teacher"&&
+<div onClick={()=>{this.setState({archive:!this.state.archive})}} style={{...styles.buttons.buttonExpand, bottom:"5px", left:"10px", position:"absolute"}}>{this.state.archive?<>Back</>:<>See Archive...</>}</div>}
                     {bool && (<Addhomework app={app} handleClose={()=>{
                         dispatch({ popupSwitch: "" });
                         state.componentList.clearUpdater();
@@ -46,7 +65,6 @@ class Homework extends Component {
                         flexDirection: "row",
                         justifyContent: "space-between",
                         alignItems: "center",
-
                         fontWeight: styles.fonts.fontweightMed,
                         padding: styles.margins.margin4,
 
@@ -61,6 +79,7 @@ class Homework extends Component {
 
 
                     }}>
+                        
                         <div
                             style={{
                                 marginLeft: styles.mystudents.studentMargin,
@@ -68,7 +87,7 @@ class Homework extends Component {
                                 letterSpacing: styles.fonts.appSpacing,
 
                             }}
-                        >Practice</div>
+                        >{this.state.archive? <>Archive</>:<>Practice</>}</div>
                         {this.props.app.state.currentuser.getJson().role === "student" ? (<></>) : (<div
                             onClick={() => { dispatch({ popupSwitch: "addhomework", operate: 'addhomework',operation:"cleanJsonPrepare", object: { owner: id } }) }}
                             style={
@@ -79,9 +98,10 @@ class Homework extends Component {
                                     fontSize:state.iphone?"12px":".79vw"
                             }
                             }
-                        >+ Add Assignment</div>)}
+                        >{this.state.archive?<></>:<>+ Add Assignment</>}</div>)}
 
                     </div>
+                    {!this.state.archive?(
                     <div style={{ ...styles.alignMain, marginTop:" 30px" }}>
                         {!state.iphone&&(
                         <div style={{height: state.ipad? "28vh":window.innerHeight<800?"30vh":"33vh"}}>
@@ -106,6 +126,7 @@ class Homework extends Component {
                                         cursor: "pointer",
                                         flexDirection: "row",
                                     }}key={index}>
+                                        <Checkedd3   size= {styles.checkbox.size1} homework={homework} app={app} />
                                      <div style={{marginLeft: styles.margins.margin4, flexDirection:'row', display:"flex", cursor: "pointer",
                                         }}
                                             onClick={ async ()=>{
@@ -123,6 +144,7 @@ class Homework extends Component {
                                                 <div style={{
                                                     fontSize: styles.fonts.fontsize1,
                                                     fontStyle: "oblique 20deg", cursor: "pointer",
+                                                    textDecoration:homework.getJson().done? "line-through": "none", color:homework.getJson().done? "#57BA8E": "black"
                                                 }}
                                                 >{homework.getJson().title.length>45?(<>{homework.getJson().title.slice(0,45)}...</>):(<>{homework.getJson().title}</>)}</div>
                                         
@@ -204,7 +226,7 @@ class Homework extends Component {
 
                             {(state.currentstudent.getJson().check || state.currentstudent.getJson().trackTime)&&(<>
                             <div style={{disply:"flex",flexDirection:"column", marginBottom:"15px", fontSize:"19px", alignContent:"center",  
-                                        justifyContent:"center", alignItems:"center", textAlign:"center",}}>Current Practice Progress
+                                        justifyContent:"center", alignItems:"center", textAlign:"center",}}>Practice Progress {state.currentReport?.getJson().start.slice(0, -5)} - {state.currentReport?.getJson().end.slice(0, -5)}
                             {state.currentstudent.getJson().trackTime&&(<div style={{
                                             cursor:"pointer", 
                                             borderRadius: "2vw", color: "white",
@@ -217,8 +239,42 @@ class Homework extends Component {
                                         padding:"2px",
                                         width:"120px" }} onClick={dispatch.bind(this,{popupSwitch: "addTime", currentComponent: state.currentstudent,})}>Log Time</div>)}
                             </div>
-                            <Checkedd big={true} size={styles.checkbox.size1} app={app} component={state.currentstudent}
-                                checked={state.currentstudent.getJson().checked} time={state.currentstudent.getJson().time} />
+                            <div style={{width:"100%", display:'flex', flexDirection:'row'}}>
+                            <div onClick={async ()=>{
+                                
+                                let lastWeeksReport = await ReportService.getLastWeeksReport(comp, state.currentstudent?.getJson()._id, state.currentReport);
+                                if(lastWeeksReport){
+                                    dispatch({currentReport:lastWeeksReport, review:true});
+
+                                }
+
+
+                            }}
+                                       
+                                       style={{background:"#00000099", clipPath:"polygon(50% 0, 50% 100%, 100% 50%)", width:"13px", height:"10px",transform:"rotate(180deg)", marginTop:"40px"}}>
+                                        </div>
+                                        <div>
+                            <Checkedd big={true} size={styles.checkbox.size1} app={app} component={state.review? state.currentReport:state.currentstudent}
+                                checked={state.review? state.currentReport.getJson().checked:state.currentstudent.getJson().checked} time={state.review?state.currentReport.getJson().time:state.currentstudent.getJson().time} /></div>
+                                {state.currentReport?.getJson().start !== calendarService.getMostRecentMonday() &&
+                                <div  onClick={async ()=>{
+                                    
+                                    let lastWeeksReport = await ReportService.getLastWeeksReport(comp, state.currentstudent?.getJson()._id, state.currentReport, true);
+                                    if(lastWeeksReport){
+                                        await dispatch({currentReport:lastWeeksReport});
+                                        
+                                        let todaysReport = await ReportService.createCurrentReport(comp, state.currentstudent?.getJson()._id, true);
+                                        if(lastWeeksReport.getJson()._id === todaysReport.getJson()._id){
+                                            await dispatch({review:false})
+                                        }
+    
+                                    }}
+    
+    
+                                }
+                                       
+                                       style={{background:"#00000099", clipPath:"polygon(50% 0, 50% 100%, 100% 50%)", width:"13px", height:"10px", marginTop:"40px",marginLeft:"20px", }}></div>}
+                                </div>
                                 <div style={{width:window.innerWidth<1400&&window.innerWidth>1300? "20vw":styles.sizeSpecStud.width,  height:"fit-content", marginBottom:styles.margins.margin4, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:'center',  marginTop: (state.iphone ||state.ipad)?"0vh":"5vh"}}>
                                     <div style={{display:"flex", flexDirection:"row", alignItems:"center", height:"fit-content"}}><img style={{marginRight:"10px"}} src={fire} alt= "fire"/><div>
                                     <div style={{fontSize:"2vh", fontFamily:styles.fonts.appTitle}}>{state.currentstudent.getJson().totalDaysPracticed} Day Streak</div>
@@ -301,6 +357,15 @@ class Homework extends Component {
                                     </div>)}
                         </div></div>)}
                     </div>
+                ):(<div style={{padding:"10px"}}>
+                        {comp.getList("archive", id).map((archive, index)=>
+                        <div style={{display:'flex',flexDirection:"row"}}>
+                        <div style={{cursor:"pointer"}} onClick={dispatch.bind(this,{ popupSwitch: "updateHomework", operate: "update", operation: "cleanPrepare", object: archive }, false)}>{archive.getJson().title}</div>
+                        <div style={{marginLeft:"20px"}}>compleded on: {archive.getJson().completed}</div>
+                        <div style={{marginLeft:"20px", color:"red",cursor:'pointer'}} onClick={()=>{archive.getOperationsFactory().cleanPrepareRun({del:archive})}}>Permanantly Delete</div>
+                        </div>
+                        )}
+                    </div>)}
 
                     {/* <button style={
                     styles.buttons.buttonLog

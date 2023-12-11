@@ -25,6 +25,7 @@ class InputFormComponent extends Component {
     componentDidMount() {
         document.addEventListener('mousedown', this.handleClickOutside);
     }
+    
     componentWillUnmount() {
         document.removeEventListener('mousedown', this.handleClickOutside);
     }
@@ -65,7 +66,7 @@ class InputFormComponent extends Component {
                 placeholder={this.props.placeholder}
                 onChange={this.handleChange}
                 name={this.props.name}
-                value={this.state.value}
+                value={this.props.value}
                 min={this.state.min}
                 max={this.state.max}
                 onClick={this.props.onClick}

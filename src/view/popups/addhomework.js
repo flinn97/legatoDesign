@@ -19,13 +19,13 @@ class Addhomework extends Component {
         this.state = {
             edit: this.props.app.state.popupSwitch==="updateHomework"? true: false,
             addMeta:false,
-            title: this.props.app.state.currentComponent? this.props.app.state.currentComponent.getJson().title:"",
-            description:  this.props.app.state.currentComponent? this.props.app.state.currentComponent.getJson().description:"",
-            hwlink:  this.props.app.state.currentComponent? this.props.app.state.currentComponent.getJson().hwlink:"",
+            title: this.props.app.state.currentComponent? this.props.app.state.currentComponent?.getJson().title:"",
+            description:  this.props.app.state.currentComponent? this.props.app.state.currentComponent?.getJson().description:"",
+            hwlink:  this.props.app.state.currentComponent? this.props.app.state.currentComponent?.getJson().hwlink:"",
             update: false,
             database:false,
             addMeta: false,
-            attachments:this.props.app.state.currentComponent? this.props.app.state.currentComponent.getJson().media:{},
+            attachments:this.props.app.state.currentComponent? this.props.app.state.currentComponent?.getJson().media:{},
             homeworkCount: 1,studentList:false,
             groups: [],
             students:[this.props.app.state.currentstudent?.getJson()._id]
@@ -151,7 +151,7 @@ class Addhomework extends Component {
                             </div>):(
                      <div style={{display:'flex', flexDirection:state.iphone?"column":"row", width:window.innerWidth<1620 ?"90vw":"60vw", alignItems:state.iphone &&"center"}}>
                         <div style={{width:window.innerWidth<1620 ?"70vw":"40vw",  }}>
-                            <div style={{width:'100%', display:"flex", justifyContent:"center"}}><b style={{fontSize:"20px"}}>New Assignment</b></div>
+                            <div style={{width:'100%', display:"flex", justifyContent:"center"}}><b style={{fontSize:"20px"}}>{homework?.getJson()?.type==="archive"?<>Archived Assignment</>: <>New Assignment</>}</b></div>
                     <div className="form-group">
                         <label htmlFor="lastName"><b>Assignment Title:</b></label>
                         <input type="text" className="form-control" id="homework" style={{width:"95%"}} value={this.state.title} onChange={this.handleChange} name={"title"} placeholder="title the practice assignment..."/>
@@ -272,11 +272,11 @@ class Addhomework extends Component {
                                 </div>)}</div>
                                 )}</>)}
                                 </div>):(<div onClick={()=>{this.setState({studentList:true})}} style={{display:"flex", cursor:"pointer",  alignItems:'center', justifyContent:"center", flexDirection:'row', width:"250px",  height:"70px", boxShadow:"3px 3px 10px 1px #797979", borderRadius:"12px", marginRight:!state.iphone&&"40px" }}>
-                                    <img src={state.currentstudent.getJson().picURL} style={{borderRadius:"50%", width:"50px", height:"50px", marginRight:"10px"}} />
+                                    <img src={state.currentstudent?.getJson().picURL} style={{borderRadius:"50%", width:"50px", height:"50px", marginRight:"10px"}} />
                                     <div>
                                         <div>Assign to:</div>
                                         <div style={{color:"#6C86F4"}}>
-                                            {state.currentstudent.getJson().firstName} {state.currentstudent.getJson().lastName}
+                                            {state.currentstudent?.getJson().firstName} {state.currentstudent?.getJson().lastName}
                                         </div>
                                         <div>{(this.state.students.length>1) && (<div style={{fontSize:"12px", color:"#6C86F4"}}>+ {this.state.students.length-1} more</div>)}</div>
                                     </div>
@@ -284,14 +284,15 @@ class Addhomework extends Component {
                                 </div>)}
                                 
                                 </div> </div>
+                                {homework?.getJson().type!=='archive'&&
                                 <div style={{position:"absolute", bottom:15, display:"flex", flexDirection:"row"}}>
                         <div style={{  flexDirection:"row", display:'flex', alignContent:"center", justifyContent:"center",   }}>
                         <button  className="btn  btn-block"  
                         onClick={()=>{
                             
                             for(let i = 0; i<this.state.students.length; i++){
-                                if(this.state.students[i]!==state.currentstudent.getJson()._id){
-                                    state.componentList.getOperationsFactory().jsonPrepare({addhomework: {...homework.getJson(), owner:this.state.students[i]}});
+                                if(this.state.students[i]!==state.currentstudent?.getJson()._id){
+                                    state.componentList.getOperationsFactory().jsonPrepare({addhomework: {...homework?.getJson(), owner:this.state.students[i]}});
 
                                 }
                             }
@@ -307,8 +308,8 @@ class Addhomework extends Component {
                             homework.setJson({...homework.getJson(), owner:""})
                             dispatch({popupSwitch:"", operation:"cleanPrepareRun", object:homework, operate:"update"})}}
                         style={{ background: "#F56060", height: "40px", color: "#F0F2EF", width:window.innerWidth<600? "135px": "180px", marginLeft:"20px", display:"flex", flexDirection:"column", justifyContent:"center", borderRadius: "16px",  alignItems:"center"}}>Unassign</button>)}
-                   </div>
-                    </div>
+                   </div>}
+                    </div>{homework?.getJson().type!=='archive'&&
                     <div style={{paddingTop:"40px", paddingRight:'20px', borderLeft:!state.iphone&&"1px solid grey", height:"61vh",  display:"flex", flexDirection:"column", alignItems:"center", width:window.innerWidth<1620? "50vw":"20vw"}}>
                         <div style={{width:"100%", cursor:"pointer",backgroundColor:"#6C86F4", borderRadius:"7px", width:"200px", height:"40px", color:"white", display:'flex', justifyContent:"center", alignItems:"center"}} onClick={()=>{this.setState({database:true})}}><b>Assignment Library</b></div>
 
@@ -322,7 +323,7 @@ class Addhomework extends Component {
                         <b style={{marginTop:"10px", fontSize:"12px"}}>{hw.getJson().description}</b>
                         {Object.keys(hw.getJson().media) && (<b style={{color:"#6C86F4", fontSize:"12px"}}>{Object.keys(hw.getJson().media).length} Attachments</b>)}
                     </div></div>
-                    )}</div></div>
+                    )}</div></div>}
                     </div>
                     )}</div>)}
                 </div>

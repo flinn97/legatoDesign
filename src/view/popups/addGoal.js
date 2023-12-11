@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import studentService from "../../services/studentService";
+import AddToGroup from "../components/addToGroup";
 //details my existingEmail.js component. creates some buttons that use methods embedded in props from the profile page. Choice will update the backend.
 class addGoal extends Component {
     constructor(props) {
@@ -70,6 +71,7 @@ class addGoal extends Component {
                             name={key+"title"}
                         />
                     </div>
+                    <AddToGroup app={app} setList={(list)=>{this.setState({students:list})}}/>
                     <div style={{          display: 'flex', 
                                         flexDirection: 'column',
                                          marginTop:".7vh",
@@ -201,7 +203,27 @@ class addGoal extends Component {
                     <div style={{display:'flex', flexDirection:"row"}}>
                     {state.popupSwitch==="archive"?(<></>):(<>
                     <button className="btn  btn-block" style={{ background: "#57BA8E", height: "35px", color: "#F0F2EF", marginTop:"1vh", marginBottom:"-1vh",  borderRadius: "16px",  }} 
-                    onClick={dispatch.bind(this, {operation:"run", popupSwitch:""})}> Save
+                    onClick={()=>{
+                        // //debugger
+                        for(let i = 0; i<this.state.students.length; i++){
+                            if(this.state.students[i]!==state.currentstudent.getJson()._id){
+                                let register = state.componentList.getOperationsFactory().getUpdater(key);
+                                let mainGaol = register.filter(obj =>{return obj.getJson().type==="mainGoal"})[0];
+                                let goals = register.filter(obj =>{return obj.getJson().type==="goal"});
+                                let newMainGoal = {...mainGaol.getJson(), owner: this.state.students[i], _id: (Math.random(Date.now())+Date.now()+performance.now()).toString()}
+                                state.componentList.getOperationsFactory().jsonPrepare({addmainGoal: {...newMainGoal}});
+                                for(let obj of goals){
+                                    let newGoal = {...obj.getJson(), owner:this.state.students[i], _id: (Math.random(Date.now())+Date.now()+performance.now()).toString(), mainID:newMainGoal._id}
+                                    state.componentList.getOperationsFactory().jsonPrepare({addgoal: {...newGoal}});
+                                }
+
+
+                                
+
+                            }
+                        }
+                        dispatch({operation:"run", popupSwitch:""});
+                        }}> Save
                     </button>
 
                     {goal?.getJson().collection!=="" &&(<button  className="btn  btn-block"  

@@ -83,7 +83,7 @@ export default class Login extends Component {
         await this.setState({
             loading:true
         })
-        debugger
+        // //debugger
         e.preventDefault();
         let email = this.state.email
         let password = this.state.password
@@ -208,8 +208,8 @@ export default class Login extends Component {
                                 )}
                                {!this.state.student? (<div style={{color:"blue", cursor:"pointer", textDecoration:"underline", marginBottom:"1vh"}} onClick={()=>{this.setState({student:true})}}>Have a Code?</div>):(<div style={{color:"blue", cursor:"pointer", textDecoration:"underline"}} 
                                onClick={()=>{this.setState({student:false})}}>Back</div>)}
-                                <div style={{color:"blue", cursor:"pointer", textDecoration:"underline"}} onClick={()=>{this.setState({forgot:true})}}> {this.state.forgot? "" : "Forgot Password" }</div>
-                   
+                                <div style={{color:"blue", cursor:"pointer", textDecoration:"underline", marginBottom:"1vh"}} onClick={()=>{this.setState({forgot:true})}}> {this.state.forgot? "" : "Forgot Password" }</div>
+                                <div style={{color:"blue", cursor:"pointer", textDecoration:"underline"}} onClick={()=>{this.setState({student:true})}}>Register Account</div>
                     
                 </div>
             </div></div>

@@ -7,17 +7,7 @@ import logoLegato from "../assets/logo.png";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default class Register extends Component {
-    componentDidMount() {
-        // let auth = AuthService.getCurrentUser();
-        // if (auth) {
-        //     if (auth.role === "teacher") {
-        //         this.props.app.history.push("/profile");
-        //     }
-        //     if (auth.role === "student") {
-        //         this.props.app.history.push("/student_routes");
-        //     }
-        // }
-    }
+
     //state creation and binding.
     constructor(props) {
         super(props);
@@ -42,18 +32,26 @@ export default class Register extends Component {
 
             },
             attempt: 0,
-            tooManyLoginAttempts:false
+            tooManyLoginAttempts:false,
 
            
         };
     }
-    componentDidMount(){
+    async componentDidMount(){
+        if(this.props.app.state.componentList){
+            await this.props.app.state.componentList?.getOperationsFactory().cleanPrepare({adduser: 1});
+            let user = this.props.app.state.componentList?.getOperationsFactory().getUpdater("add");
+            user = user[0];
+            this.props.app.dispatch({currentComponent:user});
+        }
+        
         window.addEventListener('keyup', (e)=>{
             if(e.key==="Enter"){
                 e.preventDefault();
                 this.handleLogin(e);
                 
             }
+            
         })
     }
     onChange(value) {
@@ -128,10 +126,9 @@ export default class Register extends Component {
         if(user){
             
             await this.props.app.state.currentComponent?.getOperationsFactory().componentDispatch({addemail:this.state.email, addlastName:this.state.lastName, addfirstName:this.state.firstName, add_id:this.state.email})
-            await this.props.app.state.currentComponent?.getOperationsFactory().jsonPrepare({addchatroom:  { name: "general", owner: this.state.email, _id:"generalChatroom"}})
             await this.props.app.state.currentComponent?.getOperationsFactory().run();
             
-            this.props.app.dispatch({login:false, currentuser:this.props.app.state.currentComponent,});
+            this.props.app.dispatch({login:true, register:false, currentuser:this.props.app.state.currentComponent,});
 
         }
     
@@ -149,6 +146,7 @@ export default class Register extends Component {
                 <div style={{width:"fit-content", height: "fit-content", marginLeft:"1vw", marginTop:"1vh", textDecoration:"underline", color:styles.colors.color1, fontSize:"2.3vh", pointer:"cursor", userSelect:"none"}} onClick={this.props.app.dispatch.bind(this,{login:true})}>
                     Login
                 </div>
+                {state.currentComponent&&(
             <div className="col-md-12" style={{background:"linear-gradient(#FFFFFF, #C9F5E1, #FFFFFF)"}}>
                 <div className="card card-container" style={{background:"linear-gradient(#FFFFFF, #EFF1F2)"}}>
                 <img src={logoLegato} style={{alignSelf:"center", marginBottom:"1vh",width:state.iphone?"40vw":"9vw",}}/>
@@ -215,6 +213,7 @@ export default class Register extends Component {
                     
                 </div>
             </div>
+            )}
             </div>
         );
     }

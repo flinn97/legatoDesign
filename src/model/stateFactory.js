@@ -50,7 +50,8 @@ class ToState extends Misc{
             subStarpoints: undefined,
             spRun: false,
             currentChatroom: undefined,
-            login:true,getOtherStudents:false,
+            login:false,
+            getOtherStudents:false,
             
     }
 }

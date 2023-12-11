@@ -11,6 +11,7 @@ import Progress_circle from '../components/progresscircle.js';
 import Progressbar from '../components/moreProgress.js';
 import starpointService from '../../services/starpointService.js';
 import progress from '../../assets/starpoints.png';
+import ParentFormComponent from "../../npm/parentFormComponent.js";
 
 //details my existingEmail.js component. creates some buttons that use methods embedded in props from the profile page. Choice will update the backend.
 class Badges extends Component {
@@ -22,7 +23,9 @@ class Badges extends Component {
         this.state = {
             badges:[badge1, badge2, badge3,badge4,badge5,badge6],
             currentBadge:  badge1, 
-            key:"add"
+            key:"add",
+            manageSP:false,
+            student:false
         }
     };
     async componentDidMount() {
@@ -78,13 +81,20 @@ class Badges extends Component {
                                 styles.buttons.closeicon
                             } onClick={this.props.handleClose}>x</div>
                     
-         
+         {!this.state.manageSP?(
                  
             <div style={{display:"flex", flexDirection:"column", justifyContent:"center", display:"flex", alignItems:"center"}}>
-            <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}><img style={{}} src={progress} alt="starpoints" /> <div style={{color:styles.colors.color6, position:"absolute", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", marginRight:"3px"}}><div>{starpoints.getJson().level}</div><div style={{fontSize:"12px"}}>level</div></div></div>
-               <Progressbar dispatch={dispatch} text="points"  day={false} showAmount={starpoints?.getJson()?.starpoints}
-               amount={(parseInt(starpoints?.getJson()?.starpoints)-(500*(parseInt(starpoints?.getJson()?.level)-1)).toString())} 
-               goal={(parseInt(starpoints?.getJson()?.starpointGoal)-(500*(parseInt(starpoints?.getJson()?.level)-1)).toString())}/>
+                {state.currentuser?.getJson().type!=="student" &&<div onClick = {()=>{this.setState({manageSP:true})}}style={{...styles.buttons.buttonExpand,
+                width:"100%", }}>Manage Star Points</div>}
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
+               
+               <div style={{marginLeft:"10px", marginRight:"10px"}}> 
+               {state.currentuser?.getJson().type ==="student"?(<div>{starpoints.getJson().starpoints}</div>):(
+               <ParentFormComponent  app = {app} cleanPrepareRun={true} obj ={starpoints} name ="starpoints" inputStyle={{width:"70px", textAlign: "center"}}/>)} </div>
+              
+               <div style={{marginTop:"7px"}}>Star Points</div>
+              
+            </div>
                <div style={{width:"100%",marginTop:"20px"}}><p style={{marginLeft:"40px"}}>Stats</p></div>
                <div>Days Practiced: {state.currentstudent.getJson().totalDaysPracticed}</div>
                <div>Total Time: {state.currentstudent.getJson().timeTotal}</div>
@@ -104,7 +114,70 @@ class Badges extends Component {
 
                
 
+            </div>):(
+
+<div style={{display:"flex", flexDirection:"column", justifyContent:"center", display:"flex", alignItems:"center"}}>
+                <div onClick = {()=>{this.setState({manageSP:!this.state.manageSP})}}style={{...styles.buttons.buttonExpand,
+                width:"100%", }}>Manage Star Points</div>
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
+               
+               <div style={{marginLeft:"10px", marginRight:"10px"}}> 
+               <ParentFormComponent  app = {app} cleanPrepareRun={true} obj ={starpoints} name ="starpoints" inputStyle={{width:"70px", textAlign: "center"}}/> </div>
+              
+               <div style={{marginTop:"7px"}}>Star Points</div>
+              
             </div>
+            <ParentFormComponent name = "mainGoal" obj={starpoints} label="Main Goal Points"/>
+            <ParentFormComponent name = "goal" obj={starpoints} label="Goal Points"/>
+            
+
+            <ParentFormComponent name = "student" obj={starpoints} label="Practice Points"/>
+
+            <div 
+                    style={{
+                        ...styles.buttons.buttonRound,
+                        borderRadius:"7px",
+                        width:"50%",
+                        
+                        borderRadius: "16px", 
+                        color: styles.colors.colorBackground,
+                        background: styles.colors.colorLink,
+                        marginTop: "5%"
+                    }} 
+                onClick={async()=>{
+                    await starpoints.getOperationsFactory().cleanPrepareRun({update:starpoints});
+                    this.setState({manageSP:false})
+                }}>
+                    save</div>
+
+                    <div 
+                    style={{
+                        ...styles.buttons.buttonRound,
+                        borderRadius:"7px",
+                        width:"50%",
+                        
+                        borderRadius: "16px", 
+                        color: styles.colors.colorBackground,
+                        background: styles.colors.colorLink,
+                        marginTop: "10px"
+                    }} 
+                onClick={async()=>{
+                    
+                    let list = comp.getList("starpoints");
+                    let mainGoalVal = starpoints.getJson().mainGoal;
+                    let goalVal = starpoints.getJson().goal;
+                    let practiceVal = starpoints.getJson().student;
+                    for(let obj of list){
+                        await obj.setJson({...obj.getJson(), mainGoal: mainGoalVal, goal:goalVal, student:practiceVal})
+                        await starpoints.getOperationsFactory().prepareRun({update:obj});
+
+
+                    }
+                    this.setState({student:true})
+                }}>
+                    {this.state.student?<>saved</>:<>Save for all students</>}</div>
+            </div>
+            )}
             </div>
 
 

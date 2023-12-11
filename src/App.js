@@ -60,7 +60,9 @@ class App extends Component {
         //   })
         
         let myUser = await authService.getCurrentUser();
+        // //debugger
         if(myUser){
+            await authService.checkIfLoggedIn();
             myUser = JSON.parse(myUser);
             
             await this.setState({
@@ -166,6 +168,7 @@ class App extends Component {
                 let starpoints = await this.state.componentList.getList("starpoints", this.state.spid);
                 ////
                 let levelUp = this.state.addStarpoints!==undefined? await starpoints[0].calcSP(this.state.addStarpoints) : await starpoints[0].calcDownSP(this.state.subStarpoints);
+                
             }
         }
         if(this.state.operate!==undefined ||this.state.operation==="run"){

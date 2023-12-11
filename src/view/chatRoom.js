@@ -9,11 +9,34 @@ class ChatRoom extends Component {
         //create state
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.enterPost=this.enterPost.bind(this);
         this.state = {
             chatRooms: [],
             seeText: false,
             message:"",
         };
+    }
+    async enterPost(){
+        
+        let app = this.props.app;
+    let state = app.state;
+    let list = state.componentList;
+    let dispatch= app.dispatch
+    let opps = list.getOperationsFactory();
+        let comp = opps.getUpdater().getJson().add[0];
+        
+        
+        if (comp && comp.getJson().content !== "" && comp.getJson().content !== " ") {
+            await dispatch({ operation: "run" })
+        }
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        await delay(100);
+        var element = document.getElementById("scroll1");
+        this.setState({message:""});
+        if (element) {
+            element.scrollTop = element.scrollHeight;
+        }
+        
     }
     componentDidMount() {
 
@@ -21,7 +44,27 @@ class ChatRoom extends Component {
         if (element) {
             element.scrollTop = element.scrollHeight;
         }
-
+        window.addEventListener('keydown', async (e)=>{
+            
+            if(e.key==="Enter" && !this.state.shift){
+              this.enterPost();
+            }
+            
+            if(e.key ==="Shift"){
+                
+                this.setState({shift: true})
+            }
+        })
+        window.addEventListener('keyup',  (e)=>{
+            
+            
+            if(e.key ==="Shift"){
+                
+                this.setState({shift: false})
+            }
+        })
+       
+       
         // 
         let app = this.props.app;
         let state = app.state;
@@ -91,8 +134,8 @@ class ChatRoom extends Component {
 
 
     }
-    handleChange(e) {
-
+    async handleChange(e) {
+        
         let app = this.props.app;
         let state = app.state;
         let list = state.componentList;
@@ -100,7 +143,30 @@ class ChatRoom extends Component {
         let comp = opps.getUpdater().getJson().add[0];
         let { name, value } = e.target;
         this.setState({message:value})
-        comp.getOperationsFactory().handleChange(e)
+                if(!comp ||comp?.getJson().type!=="post"){
+                   
+                    
+                                        
+                        let owner = state.currentChatroom.getJson().owner;
+                        if (state.currentChatroom.getJson()._id === "generalChatroom") {
+                            owner = state.currentuser.getJson().role === "teacher" ? state.currentChatroom.getJson().owner : state.currentstudent.getJson()._id
+                        }
+                        let component = list.getComponent("student", owner, "_id")
+                        let picUrl = state.currentuser.getJson().role === "teacher" ? state.currentuser.getJson().picURL : component.getJson().picURL;
+                        picUrl= picUrl!==""? picUrl: wolf;
+                        let student = state.currentuser.getJson().role === "teacher" ? false : true
+                        
+                        
+                        await opps.cleanJsonPrepare({addpost: {picURL:picUrl, owner: owner, chatroom: state.currentChatroom.getJson()._id, student:student,   }})
+                        comp = opps.getUpdater().getJson().add[0];
+                        app.dispatch({currentPost:comp});
+                    }
+                    
+                        
+                        
+                        comp.getOperationsFactory().handleChange(e)
+                    
+       
     }
 
 
@@ -258,7 +324,11 @@ class ChatRoom extends Component {
                             <div > <div className="form-group" style={{ display: "flex", flexDirection: "row", position: "relative" }}>
 
                                 <input style={{ paddingRight: "60px" }} value={this.state.message} type="text" className="form-control" id="last" onChange={this.handleChange} onClick={async () => {
+                                        
+                                        let checkcomp = opps.getUpdater().getJson().add[0];
+                                        if(!checkcomp || checkcomp?.getJson().type!=="post"){
 
+                                        
                                     let owner = state.currentChatroom.getJson().owner;
                                     if (state.currentChatroom.getJson()._id === "generalChatroom") {
                                         owner = state.currentuser.getJson().role === "teacher" ? state.currentChatroom.getJson().owner : state.currentstudent.getJson()._id
@@ -273,6 +343,7 @@ class ChatRoom extends Component {
                                             owner: owner, student: state.currentuser.getJson().role === "teacher" ? false : true, chatroom: state.currentChatroom.getJson()._id
                                         }
                                     })
+                                }
                                 }} name="addcontent" />
 
                                 <div style={{ borderLeft: "1px solid gray", paddingLeft: "10px", position: "absolute", right: "10px", marginTop: "5px" }} onClick={async () => {
@@ -516,7 +587,8 @@ class ChatRoom extends Component {
                                     <div > <div className="form-group" style={{ display: "flex", flexDirection: "row", position: "relative" }}>
 
                                         <input style={{ paddingRight: "60px" }} value={this.state.message} type="text" className="form-control" id="last" onChange={this.handleChange} onClick={async () => {
-                                            
+                                             let checkcomp = opps.getUpdater().getJson().add[0];
+                                             if(!checkcomp || checkcomp?.getJson().type!=="post"){
                                             let owner = state.currentChatroom.getJson().owner;
                                             if (state.currentChatroom.getJson()._id === "generalChatroom") {
                                                 owner = state.currentuser.getJson().role === "teacher" ? state.currentChatroom.getJson().owner : state.currentstudent.getJson()._id
@@ -530,7 +602,7 @@ class ChatRoom extends Component {
                                                     picURL: picUrl,
                                                     owner: owner, student: state.currentuser.getJson().role === "teacher" ? false : true, chatroom: state.currentChatroom.getJson()._id
                                                 }
-                                            })
+                                            })}
                                         }} name="addcontent" />
 
                                         <div style={{ borderLeft: "1px solid gray", paddingLeft: "10px", position: "absolute", right: "10px", marginTop: "5px" }} onClick={async () => {

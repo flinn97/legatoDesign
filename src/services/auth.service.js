@@ -11,7 +11,23 @@ class AuthService {
 
     async getCurrentUser() {
         return localStorage.getItem("user");
+        
     }
+
+     checkIfLoggedIn(){
+        onAuthStateChanged(auth, async (user)=>{
+            if(user){
+                return
+            }
+            else{
+                
+                await this.logout();
+                window.location.reload();
+            }
+        })
+    }
+
+    
     async getAllTheDataForTheUser(email, componentList, student, teacher, dispatch) {
         let obj = {}
 
@@ -49,6 +65,33 @@ class AuthService {
 
         });
 
+
+    }
+
+    async firebaseGetter(value, componentList, attribute, type) {
+        let list = componentList.getComponents();
+        let IDlist = [];
+        for (const key in list) {
+            IDlist.push(list[key].getJson()?._id)
+        }
+        let rawData = [];
+        const components = await query(collection(db, this.urlEnpoint + "users", this.urlEnpoint + "APP", "components"), where(attribute, '==', value));
+        /// TAYLOR ORDER BY DATE?
+        let comps = await getDocs(components);
+        for (const key in comps.docs) {
+            let data = comps.docs[key].data()
+            if (!IDlist.includes(data._id)) {
+                rawData.push(data);
+            }
+        }
+        await componentList.addComponents(rawData, false);
+        if (type) {
+            return componentList.getList(type, value, attribute)
+        }
+        else {
+            return true;
+
+        }
 
     }
     

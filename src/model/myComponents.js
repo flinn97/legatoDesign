@@ -1,6 +1,7 @@
 import BaseClass from "../npm/baseClass";
 import authService from "../services/auth.service";
 import moment from 'moment';
+import calendarService from "../services/calendarService";
 class componentBase extends BaseClass{
     constructor(opps){
         super(opps);
@@ -44,6 +45,7 @@ class componentBase extends BaseClass{
 
 }
 class Starpoints extends componentBase{
+    formObserver=[];
     json={
         ...this.startobj,
         type:"starpoints",
@@ -55,6 +57,15 @@ class Starpoints extends componentBase{
         mainGoal: "100",
         homework: "10"
     }
+    formObserverRegister(func){
+        this.formObserver.push(func)
+    }
+    runObserver(){
+        for(let func of this.formObserver){
+            func(this);
+        }
+    }
+
 
     async calcSP(type){
         
@@ -69,6 +80,8 @@ class Starpoints extends componentBase{
             this.json.starpointGoal= (parseInt(this.json.starpointGoal)+500).toString();
         }
         await this.operationsFactory.prepareRun({update:[this]});
+        
+        this.runObserver()
         return bool;
     }
     async calcDownSP(type){
@@ -79,8 +92,10 @@ class Starpoints extends componentBase{
             this.json.level =(Math.ceil(updateStarpoints/500)).toString();
             this.json.starpointGoal= (parseInt(this.json.starpointGoal)-500).toString();
         }
+        this.runObserver()
         await this.operationsFactory.prepareRun({update:[this]});
     }
+
 }
 class Homework extends componentBase{
     constructor(opps){
@@ -88,10 +103,11 @@ class Homework extends componentBase{
         this.checked=this.checked.bind(this);
         this.addTime=this.addTime.bind(this);
         this.addTime=this.addTime.bind(this);
-
+        this.checked = this.checked.bind(this);
     }
     json= {
         time:true,
+        done:false,
         hwlink: "",
         check:true,
         ...this.checksandtime,
@@ -113,16 +129,85 @@ class Homework extends componentBase{
         }
         
     }
-    async checked( day){
-        this.json.checked[day]= !this.json.checked[day];
-        await this.operationsFactory.prepareRun({update:[this]});
-    }
+    // async checked( day){
+    //     this.json.checked[day]= !this.json.checked[day];
+    //     await this.operationsFactory.prepareRun({update:[this]});
+    // }
     async addTime(day, amount){
         this.json.time[day] = amount;
         await  this.operationsFactory.prepareRun({update:[this]});
     }
+    async checked(done){
+        this.json.done = done;
+        if(done){
+            let day = calendarService.getDay();
+            let archiveJson = {...this.json, _id:undefined, type:"archive", completed:day}
+            await this.operationsFactory.cleanJsonPrepare({add:archiveJson});
+        }
+        await this.operationsFactory.prepareRun({update:this})
+
+        }
     
-    
+}
+
+class Report extends componentBase{
+    json={
+        type:'report',
+        ...this.checksandtime,
+        start: "",
+        end: "",
+        check:true,
+        timeBool:{mon: false,tues: false,wed: false,thur: false,fri: false,sat: false,sun: false,},
+
+        trackTime:true
+
+    }
+    update(student){
+        
+        let check = student.getJson().checked;
+        let time = student.getJson().time;
+        this.json.checked = check;
+        this.json.time = time;
+        this.operationsFactory.prepareRun({update:this});
+    }
+    async checked(day){
+        //
+        this.json.checked[day]= !this.json.checked[day];
+        if(!this.json.timeBool[day] ){
+            this.updateComponent(this.json.checked[day]);
+        }
+        await this.operationsFactory.cleanPrepareRun({update:this});   
+    }
+    async updateComponent(bool){
+        let i = bool? 1: -1;
+        this.json.daystreak = parseInt(this.json.daystreak) +i;
+        this.json.daysPracticed= parseInt(this.json.daysPracticed) +i;
+        this.json.totalDaysPracticed= parseInt(this.json.totalDaysPracticed) +i;
+    }
+    async addTime(day, time){
+        //
+        //
+        if((!this.json.timeBool[day] ||parseInt(time)===0)&&!this.json.check ){
+            let bool = !(parseInt(time)===0);
+            await this.updateComponent(bool);
+        }
+        this.json.timeBool[day] = await (parseInt(time)===0)?false: true;
+        this.json.timeTotal = await parseInt(this.json.timeTotal) +(time- parseInt(this.json.time[day]));
+        this.json.totalTime= await parseInt(this.json.totalTime) +(time- parseInt(this.json.time[day]));
+        this.json.time[day]=  time;           
+            
+        await this.operationsFactory.cleanPrepareRun({update:this});
+    }
+}
+
+class Archive extends Homework{
+    json= {
+        ...this.json,
+        type:"archive",
+
+    }
+
+
 }
 
 class UserThings extends componentBase{
@@ -247,6 +332,7 @@ class Student extends componentBase{
         ...this.userInfo,
         type: "student",
         _id:"",
+        firstReportCreated:true,
         username:"",
         teacher: "",
         role: "student",
@@ -460,4 +546,4 @@ class Badge extends componentBase{
 }
 
 
-export {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge, Group}
+export {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge, Group, Archive, Report}

@@ -10,11 +10,14 @@ class ParentFormComponent extends Component {
         this.handleChange=this.handleChange.bind(this);
         this.prepareOnClick=this.prepareOnClick.bind(this);
         this.handleHTMLChange=this.handleHTMLChange.bind(this);
+        this.getObj = this.getObj.bind(this);
         this.state = {
             obj: undefined,
-            start: false
+            start: false,
+            restart:false,
         };
     }
+
     handleHTMLChange(change){
           
           
@@ -44,15 +47,31 @@ class ParentFormComponent extends Component {
        }
        this.setState({
         obj:obj,
-        start:true
+        start:true,
        })
+       
+       if(obj[0].formObserver!==undefined && obj?.length!==0){
+        
+        obj[0].formObserverRegister((obj)=>{
+            
+            obj = [obj];
+            this.setState({obj:obj})
+            this.render();
+
+
+        })
+       }
     }
+  
     else{
         this.setState({
             start:true
            })
     }
     }
+   
+    
+    
     async prepareOnClick(){
         
         if(this.props.prepareOnClick && this.props.app){
@@ -67,6 +86,7 @@ class ParentFormComponent extends Component {
             this.setState({
                 obj:obj
             })
+            
         }
         
         
@@ -88,14 +108,34 @@ class ParentFormComponent extends Component {
         const { name, value } = event.target
         for(const key in this.state.obj){
             this.state.obj[key].setJson({...this.state.obj[key].getJson(), [this.props.name]:value});
+            if (this.props.cleanPrepareRun) {
+                this.state.obj[key].getOperationsFactory().cleanPrepareRun({ update: this.state.obj });
+              }
+
+              if (this.props.prepareRun) {
+                
+                this.state.obj[key].getOperationsFactory().prepareRun({ update: this.state.obj });
+              }
         }
         // this.setState({obj:this.state.obj});
 
     }
+
+    getObj(){
+        let obj =   this.props.obj? this.props.obj: this.props.app?.state?.currentComponent;
+        if(obj){
+         obj = this.isArray(obj)
+        }
+        else{
+            obj = ""
+        }
+        return obj
+    }
+
     
     render() {
         let types ={
-            text: <InputFormComponent 
+        text: <InputFormComponent 
             rows={this.props.rows}
             cols={this.props.cols}
             emitClickedOutside={this.props.emitClickedOutside}
@@ -112,7 +152,7 @@ class ParentFormComponent extends Component {
             placeholder={this.props.placeholder} 
             handleChange={this.props.func? this.props.func:this.handleChange} 
             name={this.props.name} 
-             value={!this.state.obj?"": this.state.obj[0].getJson()[this.props.name]}
+             value={this.getObj()[0].getJson()[this.props.name]}
             min={this.props.min}
             max={this.props.max}
             autoComplete={this.props.autoComplete}

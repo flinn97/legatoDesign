@@ -28,7 +28,7 @@ class Dispatch extends Component {
            
         }
     };
-
+    
 
 
     render() {
@@ -61,7 +61,7 @@ class Dispatch extends Component {
                     ) : (
                         <Dashboard app={app} />
                     )}
-                </div>) : (<>{state.login ? (<Login app={app} />) : (<Register app={app} />)}</>)}
+                </div>) : (<>{!state.login &&state.componentList!==undefined ? (<Register app={app} />) : (<Login app={app} />)}</>)}
             </div>
         );
     }

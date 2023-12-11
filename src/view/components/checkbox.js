@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import starpointService from '../../services/starpointService';
 import styleService from '../../services/styleService';
 import "./checkbox.css"
+import reportService from '../../services/reportService';
 class Checkedd extends Component {
         constructor(props) {
                 super(props);
@@ -14,6 +15,9 @@ class Checkedd extends Component {
         }
         componentDidUpdate(props, state) {
                 if ((this.props.component?.getJson()?.checked !== state.checked)) {
+                        this.setState({ checked: this.props.component?.getJson()?.checked })
+                }
+                if ((this.props.component?.getJson()?.checked !== this.state.checked)) {
                         this.setState({ checked: this.props.component?.getJson()?.checked })
                 }
         }
@@ -30,6 +34,7 @@ class Checkedd extends Component {
          */
         async markcheckbox(day) {
                 //
+                
                 let comp = this.props.component
                 let component = this.props.component.getJson();
                 let checked = { ...this.state.checked }
@@ -40,9 +45,18 @@ class Checkedd extends Component {
                 this.props.app.dispatch({ ...sp, spRun: true, spid: component.type==="student"? component._id: component.owner });
                 //
 
-                        if (component.time &&component.type === "student" &&checked[day]) {
-                                this.props.app.dispatch({ popupSwitch: "addTime", currentComponent: this.props.component, forTime: day })
+                        if (component.time && (component.type === "student" ||component.type === "report") &&checked[day]) {
+                                await this.props.app.dispatch({ popupSwitch: "addTime", currentComponent: this.props.component, forTime: day })
                         }
+                        //fix starPoints
+                        else{
+                                if(component.type==="student" && !component.time){
+                                        let report = await reportService.createCurrentReport(this.props.app.state.componentList, component._id);
+                                       await  report.update(component);
+        
+                                }
+                        }
+                        
                 
         }
 

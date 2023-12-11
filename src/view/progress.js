@@ -4,6 +4,7 @@ import Progressbar from './components/moreProgress.js';
 import starpointService from '../services/starpointService.js';
 import progress from '../assets/starpoints.png';
 import badges from '../assets/bages.png';
+import ParentFormComponent from '../npm/parentFormComponent.js';
 
 class Progress extends Component {
     constructor(props) {
@@ -63,7 +64,14 @@ class Progress extends Component {
             <div style={{display:"flex", flexDirection:"column", height:"100%",  display:"flex", alignItems:"center"}}>
                {/* <Progress_circle dispatch={dispatch} maingoals={mainList} goals={goalList} update={state.updateCircle} /> */}
                <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
-                <img style={{...styles.starPostion}} src={progress} alt="starpoints" /> <div 
+               
+                <div style={{marginLeft:"10px", marginRight:"10px"}}> 
+                {state.currentuser?.getJson().type ==="student"?(<div>{starpoints.getJson().starpoints}</div>):(
+                <ParentFormComponent  app = {app} cleanPrepareRun={true} obj ={starpoints} name ="starpoints" inputStyle={{width:"70px", textAlign: "center"}}/> )}
+                </div>
+               
+                <div style={{marginTop:"7px"}}>Star Points</div>
+                {/* <img style={{...styles.starPostion}} src={progress} alt="starpoints" /> <div 
                 style={{
                     color: styles.colors.color6, 
                     position:state.iphone? "auto":"absolute", 
@@ -73,13 +81,15 @@ class Progress extends Component {
                     justifyContent:"center", 
                     alignItems:"center", 
                     
-                    marginRight:"3px"}}><div style={{fontSize: window.innerWidth<1300?"12px": "auto"}}>{starpoints?.getJson()?.level}</div><div style={{fontSize: window.innerWidth<1300?"12px": "12px",}}>level</div></div></div>
+                    marginRight:"3px"}}><div style={{fontSize: window.innerWidth<1300?"12px": "auto"}}>{starpoints?.getJson()?.level}</div><div style={{fontSize: window.innerWidth<1300?"12px": "12px",}}>level</div>
+                    </div> */}
+                    </div>
                     <div style={{display:"flex", flexDirection:"column", justifyContent:"space-between", display:"flex", alignItems:"center", marginTop:"4.5vh", height:"100%"}}>
                         <div>
-               <Progressbar dispatch={dispatch} text="points"  day={false} showAmount={starpoints?.getJson()?.starpoints}
+               {/* <Progressbar dispatch={dispatch} text="points"  day={false} showAmount={starpoints?.getJson()?.starpoints}
                amount={(parseInt(starpoints?.getJson()?.starpoints)-(500*(parseInt(starpoints?.getJson()?.level)-1)).toString())} 
-               goal={(parseInt(starpoints?.getJson()?.starpointGoal)-(500*(parseInt(starpoints?.getJson()?.level)-1)).toString())}/>
-               <div style={{width:"100%",marginTop:"10px"}}><p style={{marginLeft:"40px"}}>Badge Collection</p></div>
+               goal={(parseInt(starpoints?.getJson()?.starpointGoal)-(500*(parseInt(starpoints?.getJson()?.level)-1)).toString())}/> */}
+               <div style={{width:"100%",marginTop:"10px"}}><p style={{marginLeft:"0px"}}>Badge Collection</p></div>
                </div>
                <div style={{display:"flex", flexDirection:"row", justifyContent:"center", alignItems:"center", width:'100%', marginTop:"-2vh"}}>
                 <div className="scroller" style={{display:"flex",  flexDirection:"row", flexWrap:"wrap", justifyContent:"center", alignItems:"center", width: state.currentuser.getJson().role==="teacher"?"100%":(window.innerHeight>700 && window.innerHeight<800)? "70%":"80%"}}>
@@ -103,7 +113,7 @@ class Progress extends Component {
                     style={{
                         ...styles.buttons.buttonRound,
                         borderRadius:"7px",
-                        width:"60%",
+                        width:"80%",
                         borderRadius: "16px", 
                         color: styles.colors.colorBackground,
                         background: styles.colors.colorLink,

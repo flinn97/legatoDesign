@@ -1,4 +1,4 @@
-import {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge, Group } from "../model/myComponents.js"
+import {Student, Notes, Goals, UserThings, Homework, Starpoints, Post, ChatRoom, Badge, Group, Archive, Report } from "../model/myComponents.js"
 import BaseClass from "./baseClass";
 
 class Factory {
@@ -16,7 +16,9 @@ class Factory {
         mainGoal: Goals,
         notes:  Notes,
         student:  Student,
-        badge: Badge
+        badge: Badge,
+        archive: Archive,
+        report:Report
     }
     registerComponents(register){
         this.factory[register.name]= register.component;
